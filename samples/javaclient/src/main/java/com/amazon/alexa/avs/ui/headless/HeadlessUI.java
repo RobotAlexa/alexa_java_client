@@ -189,5 +189,4 @@ public class HeadlessUI extends BaseUI implements AccessTokenListener {
                 System.out.println("Unknown input: \"" + input + "\"");
         }
     }
-
 }

@@ -38,9 +38,9 @@ Or you can prototype with these third-party dev kits -
 * Added support to automatically detect if the AVS Java Sample App should start in headless mode.
 * Added support for Raspbian Stretch.
 
-*Knwon Issues*
+*Known Issues*
 
-* Error running the WakeWordAgent with Pi 2 on Stretch.
+* Error running the WakeWordAgent with Stretch on Pi 2.
 
 **July 6, 2017:**
 

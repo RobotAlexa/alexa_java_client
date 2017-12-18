@@ -421,7 +421,7 @@ echo ""
 echo "======================================================="
 echo ""
 echo ""
-select_option Locale "en-US" "en-GB" "de-DE"
+select_option Locale "en-US" "en-GB" "de-DE" "en-CA" "en-IN" "ja-JP"
 
 # Force audio to correct output
 clear

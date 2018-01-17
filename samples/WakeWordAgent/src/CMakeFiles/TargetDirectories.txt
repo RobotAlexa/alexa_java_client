@@ -1,0 +1,3 @@
+/home/pi/zlk38avs/amazon_avs/samples/wakeWordAgent/src/CMakeFiles/edit_cache.dir
+/home/pi/zlk38avs/amazon_avs/samples/wakeWordAgent/src/CMakeFiles/rebuild_cache.dir
+/home/pi/zlk38avs/amazon_avs/samples/wakeWordAgent/src/CMakeFiles/wakeWordAgent.dir

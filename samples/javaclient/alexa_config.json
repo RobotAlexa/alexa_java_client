@@ -1,0 +1,23 @@
+{
+    "productId":"Yanshee1",
+    "dsn":"123456789",
+    "provisioningMethod":"companionService",
+    "wakeWordAgentEnabled":true,
+    "headless":false,
+    "uiEnable":true,
+    "locale":"en-US",
+    "avsHost":"https://avs-alexa-na.amazon.com",
+    "companionApp":{
+        "localPort":8443,
+        "lwaUrl":"https://api.amazon.com",
+        "sslKeyStore":"/home/pi/zlk38avs/amazon_avs/samples/javaclient/certs/server/jetty.pkcs12",
+        "sslKeyStorePassphrase":""
+    },
+    "companionService":{
+        "serviceUrl":"https://localhost:3000",
+        "sslClientKeyStore":"/home/pi/zlk38avs/amazon_avs/samples/javaclient/certs/client/client.pkcs12",
+        "sslClientKeyStorePassphrase":"",
+        "sslCaCert":"/home/pi/zlk38avs/amazon_avs/samples/javaclient/certs/ca/ca.crt",
+        "sessionId":"005ff20a-e8a8-4405-9153-437f3e955a86"
+    }
+}

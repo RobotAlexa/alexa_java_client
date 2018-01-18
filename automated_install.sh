@@ -5,13 +5,13 @@
 #-------------------------------------------------------
 
 # This is the name given to your device or mobile app in the Amazon developer portal. To look this up, navigate to https://developer.amazon.com/edw/home.html. It may be labeled Device Type ID.
-ProductID=Yanshee1
+ProductID=YansheeC091
 
 # Retrieve your client ID from the web settings tab within the developer console: https://developer.amazon.com/edw/home.html
-ClientID=amzn1.application-oa2-client.ddb144fb4f2342a688dc1f319c6690ef
+ClientID=amzn1.application-oa2-client.8d1b0cf3189a44308869ff0025292200
 
 # Retrieve your client secret from the web settings tab within the developer console: https://developer.amazon.com/edw/home.html
-ClientSecret=d924716af8e85e4ba1fab4031bfa1c5065accbf315d87d458aa1a95be078c1c4
+ClientSecret=f008abc3c4a4163132dbc6eb4369ba8da7b2076b0baa547484347f44810e0bfe
 
 #-------------------------------------------------------
 # No need to change anything below this...
@@ -194,7 +194,7 @@ check_credentials()
     echo "The information is located under Device Type Info"
     echo "E.g.: RaspberryPi3"
     get_credential 1
-    ProductID=Yanshee1
+    ProductID=YansheeC091
   fi
 
   echo "-------------------------------"
@@ -224,7 +224,7 @@ check_credentials()
     echo "The information is located under the 'Security Profile' tab."
     echo "E.g.: amzn1.application-oa2-client.xxxxxxxx"
     get_credential 28
-    ClientID=amzn1.application-oa2-client.ddb144fb4f2342a688dc1f319c6690ef
+    ClientID=amzn1.application-oa2-client.8d1b0cf3189a44308869ff0025292200
   fi
 
   echo "-------------------------------"
@@ -254,7 +254,7 @@ check_credentials()
     echo "The information is located under the 'Security Profile' tab."
     echo "E.g.: fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxa"
     get_credential 20
-    ClientSecret=d924716af8e85e4ba1fab4031bfa1c5065accbf315d87d458aa1a95be078c1c4
+    ClientSecret=f008abc3c4a4163132dbc6eb4369ba8da7b2076b0baa547484347f44810e0bfe
   fi
 
   echo "-------------------------------"
@@ -380,13 +380,13 @@ fi
 #--------------------------------------------------------------------------------------------
 
 if [ "$ProductID" = "YOUR_PRODUCT_ID_HERE" ]; then
-  ProductID=Yanshee1
+  ProductID=YansheeC091
 fi
 if [ "$ClientID" = "YOUR_CLIENT_ID_HERE" ]; then
-  ClientID=amzn1.application-oa2-client.ddb144fb4f2342a688dc1f319c6690ef
+  ClientID=amzn1.application-oa2-client.8d1b0cf3189a44308869ff0025292200
 fi
 if [ "$ClientSecret" = "YOUR_CLIENT_SECRET_HERE" ]; then
-  ClientSecret=d924716af8e85e4ba1fab4031bfa1c5065accbf315d87d458aa1a95be078c1c4
+  ClientSecret=f008abc3c4a4163132dbc6eb4369ba8da7b2076b0baa547484347f44810e0bfe
 fi
 
 check_credentials

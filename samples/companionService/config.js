@@ -14,17 +14,17 @@
  * not need to modify those elements.
  */
 var config = {
-    clientId: "amzn1.application-oa2-client.ddb144fb4f2342a688dc1f319c6690ef",
-    clientSecret: "d924716af8e85e4ba1fab4031bfa1c5065accbf315d87d458aa1a95be078c1c4",
+    clientId: "amzn1.application-oa2-client.8d1b0cf3189a44308869ff0025292200",
+    clientSecret: "f008abc3c4a4163132dbc6eb4369ba8da7b2076b0baa547484347f44810e0bfe",
     redirectUrl: 'https://localhost:3000/authresponse',
     lwaRedirectHost: "amazon.com",
     lwaApiHost: "api.amazon.com",
     validateCertChain: true,
-    sslKey: "/home/pi/zlk38avs/amazon_avs/samples/javaclient/certs/server/node.key",
-    sslCert: "/home/pi/zlk38avs/amazon_avs/samples/javaclient/certs/server/node.crt",
-    sslCaCert: "/home/pi/zlk38avs/amazon_avs/samples/javaclient/certs/ca/ca.crt",
+    sslKey: "/home/pi/amazon_avs/samples/javaclient/certs/server/node.key",
+    sslCert: "/home/pi/amazon_avs/samples/javaclient/certs/server/node.crt",
+    sslCaCert: "/home/pi/amazon_avs/samples/javaclient/certs/ca/ca.crt",
     products: {
-        "Yanshee1": ["123456789"],
+        "YansheeC091": ["123456789"],
     },
 };
 

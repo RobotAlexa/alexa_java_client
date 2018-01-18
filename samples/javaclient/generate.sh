@@ -11,7 +11,7 @@ COMMON_NAME="My CA" openssl req -new -x509 -days 365 -key certs/ca/ca.key -out c
 
 # Create the Client KeyPair for the Device Code
 openssl genrsa -out certs/client/client.key 2048
-COMMON_NAME="Yanshee1:123456789" openssl req -new -key certs/client/client.key -out certs/client/client.csr -config ssl.cnf -sha256
+COMMON_NAME="YansheeC091:123456789" openssl req -new -key certs/client/client.key -out certs/client/client.csr -config ssl.cnf -sha256
 openssl x509 -req -days 365 -in certs/client/client.csr -CA certs/ca/ca.crt -CAkey certs/ca/ca.key -set_serial 01 -out certs/client/client.crt -sha256
 openssl pkcs12 -inkey certs/client/client.key -in certs/client/client.crt -export -out certs/client/client.pkcs12 -password pass:
 

@@ -38,7 +38,7 @@ import javax.json.JsonObjectBuilder;
  */
 public class DeviceConfig {
     private static final String DEFAULT_HOST = "https://avs-alexa-na.amazon.com";
-    public static final String FILE_NAME = "config.json";
+    public static final String FILE_NAME = "alexa_config.json";
     private static final List<Locale> SUPPORTED_LOCALES = new ArrayList<>();
     static {
         SUPPORTED_LOCALES.add(Locale.CANADA);
@@ -61,6 +61,7 @@ public class DeviceConfig {
     public static final String WAKE_WORD_AGENT_ENABLED = "wakeWordAgentEnabled";
     public static final String LOCALE = "locale";
     public static final String HEADLESS = "headless";
+    public static final String UI_ENABLE = "uiEnable";
 
     /*
      * Required parameters from the config file.
@@ -79,6 +80,7 @@ public class DeviceConfig {
     private CompanionServiceInformation companionServiceInfo;
     private boolean wakeWordAgentEnabled;
     private boolean headlessModeEnabled;
+    private boolean uiEnabled;
 
     @SuppressWarnings("javadoc")
     public enum ProvisioningMethod {
@@ -211,6 +213,14 @@ public class DeviceConfig {
             CompanionServiceInformation companionServiceInfo) {
         this(productId, dsn, provisioningMethod, wakeWordAgentEnabled, headlessModeEnabled,
                 languageTag, companionAppInfo, companionServiceInfo, DEFAULT_HOST);
+    }
+
+    public boolean getUiEnabled() {
+        return uiEnabled;
+    }
+
+    public void setUiEnabled(boolean uiEnabled) {
+        this.uiEnabled = uiEnabled;
     }
 
     /**
@@ -360,6 +370,7 @@ public class DeviceConfig {
                 .add(PROVISIONING_METHOD, provisioningMethod.toString())
                 .add(WAKE_WORD_AGENT_ENABLED, wakeWordAgentEnabled)
                 .add(HEADLESS, headlessModeEnabled)
+                .add(UI_ENABLE, uiEnabled)
                 .add(LOCALE, locale.toLanguageTag())
                 .add(AVS_HOST, avsHost.toString());
 

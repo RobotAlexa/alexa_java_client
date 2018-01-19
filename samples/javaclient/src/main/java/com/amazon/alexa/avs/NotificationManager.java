@@ -260,7 +260,7 @@ public class NotificationManager {
                 isSetIndicatorPersisted.get());
     }
 
-    public void loadFromDisk(com.amazon.alexa.avs.ResultListener listener) {
+    public void loadFromDisk(com.amazon.alexa.avs.listener.ResultListener listener) {
         dataStore.loadFromDisk(new ResultListener<NotificationsStatePayload>() {
 
             @Override

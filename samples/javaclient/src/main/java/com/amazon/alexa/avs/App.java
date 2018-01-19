@@ -12,20 +12,35 @@
  */
 package com.amazon.alexa.avs;
 
+import com.amazon.alexa.avs.alert.AlertManagerFactory;
+import com.amazon.alexa.avs.audio.AVSAudioPlayerFactory;
 import com.amazon.alexa.avs.auth.AuthSetup;
 import com.amazon.alexa.avs.config.DeviceConfig;
 import com.amazon.alexa.avs.config.DeviceConfigUtils;
 import com.amazon.alexa.avs.http.AVSClientFactory;
+import com.amazon.alexa.avs.robot.communicate.constants.PROCOTOL_CMDS;
+import com.amazon.alexa.avs.robot.communicate.constants.VOICE_STATUS;
+import com.amazon.alexa.avs.robot.communicate.constants.VOICE_TYPE;
+import com.amazon.alexa.avs.tts.AWSPollyTTS;
+import com.amazon.alexa.avs.tts.TTSBean;
+import com.amazon.alexa.avs.tts.TTSBeanACK;
+import com.amazon.alexa.avs.tts.TTSUdpServer;
+import com.amazon.alexa.avs.ui.BaseUI;
 import com.amazon.alexa.avs.ui.graphical.GraphicalUI;
 import com.amazon.alexa.avs.ui.headless.HeadlessUI;
-import com.amazon.alexa.avs.ui.BaseUI;
+import com.amazon.alexa.avs.util.GsonUtil;
 import com.amazon.alexa.avs.wakeword.WakeWordIPCFactory;
+import javazoom.jl.decoder.JavaLayerException;
+
+import java.net.DatagramPacket;
 
 public class App {
 
     private AVSController controller;
     private AuthSetup authSetup;
     private BaseUI appUI;
+    private AlexaClient alexaClient;
+    public static boolean isBooted = false;
 
     public static void main(String[] args) throws Exception {
         if (args.length == 1) {
@@ -44,15 +59,40 @@ public class App {
     }
 
     public App(DeviceConfig config) throws Exception {
+        // Start tts server
+        AWSPollyTTS awsPollyTTS = new AWSPollyTTS();
+        TTSUdpServer ttsUdpServer = TTSUdpServer.getInstance();
+        ttsUdpServer.setOnUdpReceivedListener((socket, packet, jsonText) -> {
+            // receive tts text
+            try {
+                TTSBean tts = GsonUtil.get().toObject(jsonText, TTSBean.class);
+                awsPollyTTS.synthesize(tts.text);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        ttsUdpServer.startListen();
+
         authSetup = new AuthSetup(config);
         controller =
                 new AVSController(new AVSAudioPlayerFactory(), new AlertManagerFactory(),
                         getAVSClientFactory(config), DialogRequestIdAuthority.getInstance(),
                         new WakeWordIPCFactory(), config);
-        if (config.getHeadlessModeEnabled()) {
-            appUI = new HeadlessUI(controller, authSetup, config);
+
+        if (config.getUiEnabled()) {
+            // 不使用以下代码，不使用GUI或命令行。
+            if (config.getHeadlessModeEnabled()) {
+                // 非GUI界面模式，需要在config.json中配置
+                appUI = new HeadlessUI(controller, authSetup, config);
+
+            } else {
+                // GUI界面模式
+                appUI = new GraphicalUI(controller, authSetup, config);
+            }
+
         } else {
-            appUI = new GraphicalUI(controller, authSetup, config);
+            alexaClient = new AlexaClient(controller, authSetup, config);
+            alexaClient.startAuthentication();
         }
         config.setApp(this);
     }

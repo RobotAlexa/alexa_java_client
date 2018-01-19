@@ -1,20 +1,22 @@
 /**
  * Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
+ * <p>
  * Licensed under the Amazon Software License (the "License"). You may not use this file
  * except in compliance with the License. A copy of the License is located at
- *
+ * <p>
  * http://aws.amazon.com/asl/
- *
+ * <p>
  * or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.amazon.alexa.avs;
 
-import com.amazon.alexa.avs.AVSAudioPlayer.AlexaSpeechListener;
-import com.amazon.alexa.avs.audio.SimpleAudioPlayer;
+import com.amazon.alexa.avs.audio.*;
+import com.amazon.alexa.avs.audio.AVSAudioPlayer.AlexaSpeechListener;
+import com.amazon.alexa.avs.alert.*;
 import com.amazon.alexa.avs.auth.AccessTokenListener;
+import com.amazon.alexa.avs.bean.AVSAPIConstants;
 import com.amazon.alexa.avs.config.DeviceConfig;
 import com.amazon.alexa.avs.exception.DirectiveHandlingException;
 import com.amazon.alexa.avs.exception.DirectiveHandlingException.ExceptionType;
@@ -22,6 +24,7 @@ import com.amazon.alexa.avs.http.AVSClient;
 import com.amazon.alexa.avs.http.AVSClientFactory;
 import com.amazon.alexa.avs.http.LinearRetryPolicy;
 import com.amazon.alexa.avs.http.ParsingFailedHandler;
+import com.amazon.alexa.avs.listener.*;
 import com.amazon.alexa.avs.message.request.RequestBody;
 import com.amazon.alexa.avs.message.request.RequestFactory;
 import com.amazon.alexa.avs.message.request.settings.LocaleSetting;
@@ -39,7 +42,12 @@ import com.amazon.alexa.avs.message.response.speechsynthesizer.Speak;
 import com.amazon.alexa.avs.message.response.system.SetEndpoint;
 import com.amazon.alexa.avs.message.response.templateruntime.CardHandler;
 import com.amazon.alexa.avs.message.response.templateruntime.RenderTemplate;
-import com.amazon.alexa.avs.ui.NotificationsUIHandler;
+import com.amazon.alexa.avs.robot.RobotControlDispatcher;
+import com.amazon.alexa.avs.robot.bean.SkillInformation;
+import com.amazon.alexa.avs.robot.communicate.WlanManager;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
 import com.amazon.alexa.avs.wakeword.WakeWordDetectedHandler;
 import com.amazon.alexa.avs.wakeword.WakeWordIPC;
 import com.amazon.alexa.avs.wakeword.WakeWordIPC.IPCCommand;
@@ -74,6 +82,7 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
         AccessTokenListener, DirectiveDispatcher, AlexaSpeechListener, ParsingFailedHandler,
         UserActivityListener, WakeWordDetectedHandler {
 
+    private final String TAG = AVSController.class.getSimpleName();
     private AudioCapture microphone;
     private AudioCapture audioFileCapture;
     private AVSClient avsClient;
@@ -83,7 +92,9 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     private boolean eventRunning = false; // is an event currently being sent
 
     private static final AudioInputFormat AUDIO_TYPE = AudioInputFormat.LPCM;
-    private static final String START_SOUND = "res/start.mp3";
+//    private static final String START_SOUND = "res/start.mp3";
+    private static final String START_SOUND = "res/start_ding.mp3";
+    private static final String BOOT_SOUND = "res/boot.mp3";
     private static final String END_SOUND = "res/stop.mp3";
     private static final String ERROR_SOUND = "res/error.mp3";
     private static final SpeechProfile PROFILE = SpeechProfile.NEAR_FIELD;
@@ -122,8 +133,8 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     private ResultListener listener;
 
     public AVSController(AVSAudioPlayerFactory audioFactory, AlertManagerFactory alarmFactory,
-            AVSClientFactory avsClientFactory, DialogRequestIdAuthority dialogRequestIdAuthority,
-            WakeWordIPCFactory wakewordIPCFactory, DeviceConfig config) throws Exception {
+                         AVSClientFactory avsClientFactory, DialogRequestIdAuthority dialogRequestIdAuthority,
+                         WakeWordIPCFactory wakewordIPCFactory, DeviceConfig config) throws Exception {
 
         this.avsClientFactory = avsClientFactory;
         this.wakeWordAgentEnabled = config.getWakeWordAgentEnabled();
@@ -219,7 +230,7 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     }
 
     public void init(ListenHandler listenHandler, NotificationIndicator notificationIndicator,
-            CardHandler cardHandler) {
+                     CardHandler cardHandler) {
         // Initialize all GUI-related handlers
         this.stopCaptureHandler = listenHandler;
         this.expectSpeechListeners = new HashSet<>(
@@ -290,6 +301,11 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     @Override
     public void onAccessTokenReceived(String accessToken) {
         avsClient.setAccessToken(accessToken);
+//        if (!App.isBooted) {
+//            // play complete audio
+//            player.playMp3FromResource(BOOT_SOUND);
+//            App.isBooted = true;
+//        }
     }
 
     @Override
@@ -330,14 +346,17 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
             avsClient.sendEvent(body, inputStream, requestListener, AUDIO_TYPE);
 
             speechRequestAudioPlayerPauseController.startSpeechRequest();
+
         } catch (Exception e) {
             player.playMp3FromResource(ERROR_SOUND);
             requestListener.onRequestError(e);
+            WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
+            WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
         }
     }
 
     private InputStream getMicrophoneInputStream(AVSController controller,
-            RecordingRMSListener rmsListener) throws LineUnavailableException, IOException {
+                                                 RecordingRMSListener rmsListener) throws LineUnavailableException, IOException {
 
         int numberRetries = 1;
 
@@ -347,7 +366,9 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
 
         for (; numberRetries > 0; numberRetries--) {
             try {
-                return microphone.getAudioInputStream(controller, rmsListener);
+                if (microphone != null) {
+                    return microphone.getAudioInputStream(controller, rmsListener);
+                }
             } catch (LineUnavailableException | IOException e) {
                 if (numberRetries == 1) {
                     throw e;
@@ -465,7 +486,7 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     }
 
     private void sendExceptionEncounteredEvent(String directiveJson, ExceptionType type,
-            Exception e) {
+                                               Exception e) {
         sendRequest(RequestFactory.createSystemExceptionEncounteredEvent(directiveJson, type,
                 e.getMessage(), player.getPlaybackState(), player.getSpeechState(),
                 alertManager.getState(), player.getVolumeState()));
@@ -576,21 +597,50 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
         }
     }
 
-    private void handleTemplateRuntimeDirective(Directive directive)
-            throws DirectiveHandlingException {
+    /**
+     * handle TemplateRuntime,RenderTemplate,BodyTemplate1
+     * Some robot controlling use this method.
+     *
+     * @param directive
+     * @throws DirectiveHandlingException
+     */
+    private void handleTemplateRuntimeDirective(Directive directive) throws DirectiveHandlingException {
+        log.info("handleTemplateRuntimeDirective(), directive: " + directive);
         String directiveName = directive.getName();
+        dispatchDirective(directive);
         if (cardHandler == null) {
-            throwUnsupportedOperationException(directive);
+            return;
+//            throwUnsupportedOperationException(directive);
         }
         if (AVSAPIConstants.TemplateRuntime.Directives.RenderTemplate.NAME.equals(directiveName)) {
+            // "name": "RenderTemplate"
             cardHandler.renderCard((RenderTemplate) directive.getPayload(),
                     directive.getRawMessage());
+            log.info("handleTemplateRuntimeDirective(), RenderTemplate directive {}", directive);
+
         } else if (AVSAPIConstants.TemplateRuntime.Directives.RenderPlayerInfo.NAME
                 .equals(directiveName)) {
             cardHandler.renderPlayerInfo(directive.getRawMessage());
+            log.info("handleTemplateRuntimeDirective(), RenderPlayerInfo directive", directive.getRawMessage());
         } else {
+            log.error("handleTemplateRuntimeDirective(), throwUnsupportedOperationException");
             throwUnsupportedOperationException(directive);
         }
+    }
+
+    private void dispatchDirective(Directive directive) {
+        // TODO: from here to control robot
+        String mainTitle = ((RenderTemplate) directive.getPayload()).getTitle().getMainTitle();
+        String subTitle = ((RenderTemplate) directive.getPayload()).getTitle().getSubTitle();
+        log.info("handleTemplateRuntimeDirective(), mainTitle: {}, subTitle: {}", mainTitle, subTitle);
+        System.out.println("handleTemplateRuntimeDirective(), mainTitle: " + mainTitle + ", subTitle: " + subTitle);
+
+        SkillInformation information = new SkillInformation();
+        information.mainTitle = mainTitle;
+        information.subTitle = subTitle;
+
+        RobotControlDispatcher dispatcher = new RobotControlDispatcher();
+        dispatcher.dispatchHandler(information);
     }
 
     private void throwUnsupportedOperationException(Directive directive)
@@ -629,8 +679,12 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     }
 
     public void stopRecording() {
-        speechRequestAudioPlayerPauseController.finishedListening();
-        microphone.stopCapture();
+        if (speechRequestAudioPlayerPauseController != null) {
+            speechRequestAudioPlayerPauseController.finishedListening();
+        }
+        if (microphone != null) {
+            microphone.stopCapture();
+        }
 
         if (this.wakeWordAgentEnabled) {
             try {
@@ -646,12 +700,16 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     @Override
     public void recordingStarted() {
         player.playMp3FromResource(START_SOUND);
+        WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.BLINK, LED_COLOR.GREEN);
+        WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.BLINK, LED_COLOR.GREEN);
     }
 
     // audio state callback for when recording has completed
     @Override
     public void recordingCompleted() {
         player.playMp3FromResource(END_SOUND);
+        WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
+        WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
     }
 
     public boolean isSpeaking() {
@@ -763,3 +821,4 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
         this.audioFileCapture = audioFileCapture;
     }
 }
+

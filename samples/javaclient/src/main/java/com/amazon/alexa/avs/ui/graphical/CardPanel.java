@@ -25,6 +25,7 @@ import javax.swing.JTextArea;
 import javax.swing.Scrollable;
 import javax.swing.border.EmptyBorder;
 
+import com.amazon.alexa.avs.log.ConsoleLogger;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
@@ -60,6 +61,7 @@ public class CardPanel extends JPanel implements Scrollable {
     }
 
     public void generateCard(RenderTemplate payload, String rawMessage) {
+        ConsoleLogger.print("CardPanel", "generateCard: " + rawMessage);
         clearCard();
         if (payload.getType().equals(BODY_TEMPLATE_1)) {
             generateBodyTemplate1(payload.getTitle(), payload.getTextField());

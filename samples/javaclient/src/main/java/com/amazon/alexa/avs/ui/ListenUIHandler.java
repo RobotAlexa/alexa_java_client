@@ -12,8 +12,8 @@
  */
 package com.amazon.alexa.avs.ui;
 
-import com.amazon.alexa.avs.ExpectSpeechListener;
-import com.amazon.alexa.avs.ExpectStopCaptureListener;
+import com.amazon.alexa.avs.listener.ExpectSpeechListener;
+import com.amazon.alexa.avs.listener.ExpectStopCaptureListener;
 import com.amazon.alexa.avs.ListenHandler;
 import com.amazon.alexa.avs.auth.AccessTokenListener;
 import com.amazon.alexa.avs.wakeword.WakeWordDetectedHandler;

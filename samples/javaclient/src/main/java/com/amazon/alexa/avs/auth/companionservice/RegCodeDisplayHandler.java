@@ -16,6 +16,10 @@ import java.awt.Desktop;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
 import java.net.URI;
 
 import javax.swing.JOptionPane;
@@ -60,6 +64,9 @@ public class RegCodeDisplayHandler {
                 } catch (Exception e) {
                     // Ignore and proceed
                 }
+//                dialogFactory.showInformationalDialog(title,
+//                        "If a browser window did not open, please copy and paste the below URL into a "
+//                                + "web browser, and follow the instructions:\n" + regUrl + "\n\n " + CONTINUE_WHEN_DONE);
                 dialogFactory.showInformationalDialog(title,
                     "If a browser window did not open, please copy and paste the below URL into a "
                         + "web browser, and follow the instructions:\n" + regUrl + "\n\n " + CONTINUE_WHEN_DONE);
@@ -88,5 +95,47 @@ public class RegCodeDisplayHandler {
         Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
         Clipboard systemClipboard = defaultToolkit.getSystemClipboard();
         systemClipboard.setContents(new StringSelection(text), null);
+    }
+
+    /**
+     * UDP server端
+     */
+    public static class UdpServer {
+        // 定义一些常量
+        private final int MAX_LENGTH = 1024; // 最大接收字节长度
+        private final int PORT_NUM = 10888;   // port号
+        // 用以存放接收数据的字节数组
+        private byte[] receMsgs = new byte[MAX_LENGTH];
+        // 数据报套接字
+        private DatagramSocket datagramSocket;
+        // 用以接收数据报
+        private DatagramPacket datagramPacket;
+        private OnUdpReceivedListener mListener;
+
+        public void listen() {
+            try {
+                datagramSocket = new DatagramSocket(PORT_NUM);
+                datagramPacket = new DatagramPacket(receMsgs, receMsgs.length);
+                datagramSocket.receive(datagramPacket);
+
+                if (mListener != null) {
+                    mListener.onReceived(datagramPacket);
+                }
+
+                String recvStr = new String(datagramPacket.getData(), 0, datagramPacket.getLength());
+                System.out.println(recvStr);
+            } catch (Exception e) {
+
+            }
+            datagramSocket.close();
+        }
+
+        public void setOnUdpReceivedListener(OnUdpReceivedListener listener) {
+            mListener = listener;
+        }
+
+        interface OnUdpReceivedListener {
+            void onReceived(DatagramPacket packet);
+        }
     }
 }

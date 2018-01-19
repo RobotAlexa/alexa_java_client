@@ -12,7 +12,7 @@
  */
 package com.amazon.alexa.avs.message.request;
 
-import com.amazon.alexa.avs.AVSAPIConstants;
+import com.amazon.alexa.avs.bean.AVSAPIConstants;
 import com.amazon.alexa.avs.message.Header;
 import com.amazon.alexa.avs.message.Payload;
 import com.amazon.alexa.avs.message.request.context.AlertsStatePayload;

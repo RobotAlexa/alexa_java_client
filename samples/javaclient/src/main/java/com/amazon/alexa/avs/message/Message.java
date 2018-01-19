@@ -12,7 +12,7 @@
  */
 package com.amazon.alexa.avs.message;
 
-import com.amazon.alexa.avs.AVSAPIConstants;
+import com.amazon.alexa.avs.bean.AVSAPIConstants;
 import com.amazon.alexa.avs.config.ObjectMapperFactory;
 import com.amazon.alexa.avs.message.Message.MessageDeserializer;
 import com.amazon.alexa.avs.message.response.AlexaExceptionResponse;

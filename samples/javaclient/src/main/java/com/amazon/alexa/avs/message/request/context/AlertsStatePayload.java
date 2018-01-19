@@ -12,7 +12,7 @@
  */
 package com.amazon.alexa.avs.message.request.context;
 
-import com.amazon.alexa.avs.Alert;
+import com.amazon.alexa.avs.alert.Alert;
 import com.amazon.alexa.avs.message.Payload;
 
 import java.util.List;

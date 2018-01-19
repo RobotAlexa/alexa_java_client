@@ -12,8 +12,8 @@
  */
 package com.amazon.alexa.avs;
 
-import com.amazon.alexa.avs.AVSAudioPlayer.AlexaSpeechListener;
-
+import com.amazon.alexa.avs.audio.AVSAudioPlayer;
+import com.amazon.alexa.avs.listener.ExpectSpeechListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +25,7 @@ import java.util.concurrent.CountDownLatch;
  * appropriately manage the pause state of the player.
  */
 public class SpeechRequestAudioPlayerPauseController
-        implements AlexaSpeechListener, ExpectSpeechListener {
+        implements AVSAudioPlayer.AlexaSpeechListener, ExpectSpeechListener {
     private static final Logger log =
             LoggerFactory.getLogger(SpeechRequestAudioPlayerPauseController.class);
     private final AVSAudioPlayer audioPlayer;

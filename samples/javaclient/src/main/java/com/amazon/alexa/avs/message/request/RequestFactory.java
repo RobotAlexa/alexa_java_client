@@ -12,7 +12,7 @@
  */
 package com.amazon.alexa.avs.message.request;
 
-import com.amazon.alexa.avs.AVSAPIConstants;
+import com.amazon.alexa.avs.bean.AVSAPIConstants;
 import com.amazon.alexa.avs.SpeechProfile;
 import com.amazon.alexa.avs.exception.DirectiveHandlingException.ExceptionType;
 import com.amazon.alexa.avs.message.DialogRequestIdHeader;

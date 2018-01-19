@@ -13,18 +13,42 @@
 package com.amazon.alexa.avs.ui.headless;
 
 import com.amazon.alexa.avs.AVSController;
-import com.amazon.alexa.avs.RecordingRMSListener;
-import com.amazon.alexa.avs.RequestListener;
+import com.amazon.alexa.avs.listener.RecordingRMSListener;
+import com.amazon.alexa.avs.listener.RequestListener;
+import com.amazon.alexa.avs.realbutton.OnRealButtonClickListener;
+import com.amazon.alexa.avs.realbutton.RealButtonUdpClient;
+import com.amazon.alexa.avs.robot.communicate.WlanManager;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
 import com.amazon.alexa.avs.ui.ListenUIHandler;
 import com.amazon.alexa.avs.ui.SpeechStateChangeListener;
 import com.amazon.alexa.avs.ui.controllers.ListenViewController;
 
 public class HeadlessListenView implements ListenUIHandler {
     private ListenViewController listenViewController;
+    private RealButtonUdpClient realButtonUdpClient = RealButtonUdpClient.getInstance();
 
     public HeadlessListenView(RecordingRMSListener rmsListener, AVSController controller) {
         listenViewController =
                 new ListenViewController(rmsListener, controller, new SpeechRequestListener());
+
+        realButtonUdpClient.setOnRealButtonClickListener(type -> {
+            switch (type) {
+                case OnRealButtonClickListener.TYPE_SINGLE_CLICK:
+                    // 单击
+                    listenButtonPressed();
+                    break;
+
+                case OnRealButtonClickListener.TYPE_DOUBLE_CLICK:
+                    // 双击
+                    break;
+
+                case OnRealButtonClickListener.TYPE_LONG_CLICK:
+                    // 长按（关机了）
+                    break;
+            }
+        });
     }
 
     @Override
@@ -44,6 +68,8 @@ public class HeadlessListenView implements ListenUIHandler {
 
     @Override
     public void onProcessing() {
+        WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
+        WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
         listenViewController.onProcessing();
     }
 
@@ -81,11 +107,13 @@ public class HeadlessListenView implements ListenUIHandler {
 
     @Override
     public void onAccessTokenReceived(String accessToken) {
+        realButtonUdpClient.startListen();
         listenViewController.onAccessTokenReceived(accessToken);
     }
 
     @Override
     public void onAccessTokenRevoked() {
+        realButtonUdpClient.stopListen();
         listenViewController.onAccessTokenRevoked();
     }
 }

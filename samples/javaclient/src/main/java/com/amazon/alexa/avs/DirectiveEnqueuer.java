@@ -12,6 +12,7 @@
  */
 package com.amazon.alexa.avs;
 
+import com.amazon.alexa.avs.bean.AVSAPIConstants;
 import com.amazon.alexa.avs.http.MultipartParser.MultipartParserConsumer;
 import com.amazon.alexa.avs.message.Payload;
 import com.amazon.alexa.avs.message.response.AttachedContentPayload;

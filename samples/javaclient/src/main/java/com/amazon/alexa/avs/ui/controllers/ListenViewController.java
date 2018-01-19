@@ -15,12 +15,16 @@ package com.amazon.alexa.avs.ui.controllers;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.amazon.alexa.avs.robot.communicate.WlanManager;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.amazon.alexa.avs.AVSController;
-import com.amazon.alexa.avs.RecordingRMSListener;
-import com.amazon.alexa.avs.RequestListener;
+import com.amazon.alexa.avs.listener.RecordingRMSListener;
+import com.amazon.alexa.avs.listener.RequestListener;
 import com.amazon.alexa.avs.ui.ListenUIHandler;
 import com.amazon.alexa.avs.ui.SpeechStateChangeListener;
 
@@ -54,6 +58,7 @@ public class ListenViewController implements ListenUIHandler {
                 buttonState = ButtonState.STOP;
                 controller.startRecording(rmsListener, new SpeechRequestListener());
                 onListening();
+
             } else { // else we must already be in listening
                 buttonState = ButtonState.PROCESSING;
                 controller.stopRecording(); // stop the recording so the request can complete

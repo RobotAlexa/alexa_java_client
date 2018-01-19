@@ -12,7 +12,7 @@
  */
 package com.amazon.alexa.avs.http;
 
-import com.amazon.alexa.avs.AudioInputFormat;
+import com.amazon.alexa.avs.audio.AudioInputFormat;
 
 import org.eclipse.jetty.client.api.ContentProvider;
 import org.eclipse.jetty.client.util.InputStreamContentProvider;

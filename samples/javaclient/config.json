@@ -1,19 +1,19 @@
 {
-    "productId":"",
-    "dsn":"",
-    "provisioningMethod":"",
-    "wakeWordAgentEnabled":false,
+    "productId":"YansheeC091",
+    "dsn":"123456789",
+    "provisioningMethod":"companionService",
+    "wakeWordAgentEnabled":true,
     "locale":"en-US",
     "companionApp":{
         "localPort":8443,
-        "sslKeyStore":"",
+        "sslKeyStore":"/home/pi/amazon_avs/samples/javaclient/certs/server/jetty.pkcs12",
         "sslKeyStorePassphrase":"",
         "lwaUrl":"https://api.amazon.com"
     },
     "companionService":{
         "serviceUrl":"https://localhost:3000",
-        "sslClientKeyStore":"",
+        "sslClientKeyStore":"/home/pi/amazon_avs/samples/javaclient/certs/client/client.pkcs12",
         "sslClientKeyStorePassphrase":"",
-        "sslCaCert":""
+        "sslCaCert":"/home/pi/amazon_avs/samples/javaclient/certs/ca/ca.crt"
     }
 }

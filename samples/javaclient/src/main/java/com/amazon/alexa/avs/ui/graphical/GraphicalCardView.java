@@ -12,6 +12,7 @@
  */
 package com.amazon.alexa.avs.ui.graphical;
 
+import com.amazon.alexa.avs.log.ConsoleLogger;
 import com.amazon.alexa.avs.message.response.templateruntime.RenderTemplate;
 
 import java.awt.Color;
@@ -57,6 +58,7 @@ public class GraphicalCardView extends JPanel implements CardUIHandler {
 
     @Override
     public void renderCard(RenderTemplate payload, String rawMessage) {
+        ConsoleLogger.print(GraphicalCardView.class.getSimpleName(), "renderCard: " + rawMessage);
         SwingUtilities.invokeLater(() -> cardPanel.generateCard(payload, rawMessage));
     }
 

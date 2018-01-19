@@ -15,6 +15,8 @@ import com.amazon.alexa.avs.auth.AccessTokenListener;
 import com.amazon.alexa.avs.auth.AuthSetup;
 import com.amazon.alexa.avs.auth.companionservice.RegCodeDisplayHandler;
 import com.amazon.alexa.avs.config.DeviceConfig;
+import com.amazon.alexa.avs.realbutton.OnRealButtonClickListener;
+import com.amazon.alexa.avs.realbutton.RealButtonUdpClient;
 import com.amazon.alexa.avs.ui.BaseUI;
 
 public class HeadlessUI extends BaseUI implements AccessTokenListener {
@@ -30,7 +32,7 @@ public class HeadlessUI extends BaseUI implements AccessTokenListener {
             throws Exception {
         super(controller, authSetup, config);
         userInputParser = Executors.newFixedThreadPool(1);
-        helpTextPrinted = false;
+        helpTextPrinted = true; // true: 屏蔽帮助文件打印
     }
 
     private void init() {
@@ -64,7 +66,7 @@ public class HeadlessUI extends BaseUI implements AccessTokenListener {
     @Override
     protected void initialize(DeviceConfig config) {
         Executor userEventExecutor = Executors.newFixedThreadPool(1);
-        userEventExecutor.execute(() -> readUserInput());
+        userEventExecutor.execute(this::readUserInput);
     }
 
     private void readUserInput() {
@@ -102,14 +104,15 @@ public class HeadlessUI extends BaseUI implements AccessTokenListener {
             parseThread.cancel(true);
         }
         parseThread = userInputParser.submit(() -> {
-            try {
-                parseUserInput();
-            } catch (InterruptedException e) {
-                return;
-            } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
-                System.exit(1);
-            }
+            // 屏蔽用户输入，注释以下代码
+//            try {
+//                parseUserInput();
+//            } catch (InterruptedException e) {
+//                return;
+//            } catch (Exception e) {
+//                System.out.println("Error: " + e.getMessage());
+//                System.exit(1);
+//            }
         });
 
     }

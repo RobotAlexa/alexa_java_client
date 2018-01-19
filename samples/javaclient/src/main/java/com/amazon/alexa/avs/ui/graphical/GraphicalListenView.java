@@ -12,23 +12,20 @@
  */
 package com.amazon.alexa.avs.ui.graphical;
 
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-
 import com.amazon.alexa.avs.AVSController;
-import com.amazon.alexa.avs.RecordingRMSListener;
-import com.amazon.alexa.avs.RequestListener;
-import com.amazon.alexa.avs.auth.AccessTokenListener;
+import com.amazon.alexa.avs.listener.RecordingRMSListener;
+import com.amazon.alexa.avs.listener.RequestListener;
+import com.amazon.alexa.avs.realbutton.OnRealButtonClickListener;
+import com.amazon.alexa.avs.realbutton.RealButtonUdpClient;
 import com.amazon.alexa.avs.ui.ListenUIHandler;
 import com.amazon.alexa.avs.ui.SpeechStateChangeListener;
 import com.amazon.alexa.avs.ui.controllers.ListenViewController;
 
+import javax.swing.*;
+
 public class GraphicalListenView extends JPanel implements ListenUIHandler {
+
+    private static final long serialVersionUID = 8618547035956822658L;
 
     private static final String NOT_LISTENING_LABEL = "Tap to speak to Alexa";
     private static final String LISTENING_LABEL = "Listening";
@@ -40,6 +37,7 @@ public class GraphicalListenView extends JPanel implements ListenUIHandler {
     private JLabel actionButtonLabel;
     private JButton actionButton;
     private ListenViewController listenViewController;
+    private RealButtonUdpClient realButtonUdpClient = RealButtonUdpClient.getInstance();
 
     GraphicalListenView(RecordingRMSListener rmsListener, AVSController controller) {
         super();
@@ -60,6 +58,22 @@ public class GraphicalListenView extends JPanel implements ListenUIHandler {
         actionButton.setEnabled(false);
         actionButton.addActionListener(e -> listenButtonPressed());
 
+        realButtonUdpClient.setOnRealButtonClickListener(type -> {
+            switch (type) {
+                case OnRealButtonClickListener.TYPE_SINGLE_CLICK:
+                    // 单击
+                    listenButtonPressed();
+                    break;
+
+                case OnRealButtonClickListener.TYPE_DOUBLE_CLICK:
+                    // 双击
+                    break;
+
+                case OnRealButtonClickListener.TYPE_LONG_CLICK:
+                    // 长按（关机了）
+                    break;
+            }
+        });
         this.add(actionButton);
     }
 
@@ -138,11 +152,13 @@ public class GraphicalListenView extends JPanel implements ListenUIHandler {
 
     @Override
     public synchronized void onAccessTokenReceived(String accessToken) {
+        realButtonUdpClient.startListen();
         SwingUtilities.invokeLater(() -> actionButton.setEnabled(true));
     }
 
     @Override
     public synchronized void onAccessTokenRevoked() {
+        realButtonUdpClient.stopListen();
         SwingUtilities.invokeLater(() -> actionButton.setEnabled(false));
     }
 }

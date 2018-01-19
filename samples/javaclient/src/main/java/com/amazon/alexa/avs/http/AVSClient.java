@@ -1,21 +1,21 @@
 /**
  * Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
+ * <p>
  * Licensed under the Amazon Software License (the "License"). You may not use this file
  * except in compliance with the License. A copy of the License is located at
- *
- *   http://aws.amazon.com/asl/
- *
+ * <p>
+ * http://aws.amazon.com/asl/
+ * <p>
  * or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.amazon.alexa.avs.http;
 
-import com.amazon.alexa.avs.AVSRequest;
-import com.amazon.alexa.avs.AudioInputFormat;
-import com.amazon.alexa.avs.RequestListener;
-import com.amazon.alexa.avs.ResultListener;
+import com.amazon.alexa.avs.bean.AVSRequest;
+import com.amazon.alexa.avs.audio.AudioInputFormat;
+import com.amazon.alexa.avs.listener.RequestListener;
+import com.amazon.alexa.avs.listener.ResultListener;
 import com.amazon.alexa.avs.config.ObjectMapperFactory;
 import com.amazon.alexa.avs.exception.AVSException;
 import com.amazon.alexa.avs.exception.AVSJsonProcessingException;
@@ -25,10 +25,15 @@ import com.amazon.alexa.avs.http.MultipartParser.MultipartParserConsumer;
 import com.amazon.alexa.avs.http.jetty.InputStreamResponseListener;
 import com.amazon.alexa.avs.http.jetty.PingSendingHttpClientTransportOverHTTP2;
 import com.amazon.alexa.avs.http.jetty.PingSendingHttpClientTransportOverHTTP2.ConnectionListener;
+import com.amazon.alexa.avs.log.ConsoleLogger;
 import com.amazon.alexa.avs.message.Message;
 import com.amazon.alexa.avs.message.request.RequestBody;
 import com.amazon.alexa.avs.message.response.AlexaExceptionResponse;
 
+import com.amazon.alexa.avs.robot.communicate.WlanManager;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
+import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
 import org.apache.commons.fileupload.MultipartStream;
 import org.apache.commons.fileupload.MultipartStream.MalformedStreamException;
 import org.apache.commons.io.IOUtils;
@@ -66,8 +71,9 @@ import java.util.concurrent.TimeUnit;
 
 public class AVSClient implements ConnectionListener {
     private static final Logger log = LoggerFactory.getLogger(AVSClient.class);
+    private static final String TAG = AVSClient.class.getSimpleName();
 
-    private static final int REQUEST_TIMEOUT_IN_S = 15;
+    private static final int REQUEST_TIMEOUT_IN_S = 20;
     private static final int REQUEST_ATTEMPTS = 3;
     private static final long REQUEST_RETRY_DELAY_MS = 1000;
 
@@ -117,22 +123,17 @@ public class AVSClient implements ConnectionListener {
      * The provided {@link SslContextFactory} may allow bypassing server certificates, or handling
      * TLS/SSL in different ways.
      *
-     * @param host
-     *            The URL of the AVS host.
-     * @param multipartParserConsumer
-     *            The {@link MultipartParserConsumer} for executing the directives from the
-     *            multipartParser.
-     * @param sslContextFactory
-     *            The {@link SslContextFactory} to use for validating certificates.
-     * @param parsingFailedHandler
-     *            The handler for handling parse failures.
-     * @param resultListener
-     *            The listener for checking that the downchannel has been set up
+     * @param host                    The URL of the AVS host.
+     * @param multipartParserConsumer The {@link MultipartParserConsumer} for executing the directives from the
+     *                                multipartParser.
+     * @param sslContextFactory       The {@link SslContextFactory} to use for validating certificates.
+     * @param parsingFailedHandler    The handler for handling parse failures.
+     * @param resultListener          The listener for checking that the downchannel has been set up
      * @throws Exception
      */
     public AVSClient(URL host, MultipartParserConsumer multipartParserConsumer,
-            SslContextFactory sslContextFactory, ParsingFailedHandler parsingFailedHandler,
-            ResultListener resultListener) throws Exception {
+                     SslContextFactory sslContextFactory, ParsingFailedHandler parsingFailedHandler,
+                     ResultListener resultListener) throws Exception {
         http2Client = new HTTP2Client();
         this.host = host;
         this.sslContextFactory = sslContextFactory;
@@ -226,7 +227,7 @@ public class AVSClient implements ConnectionListener {
      * @param avsRequest
      */
     private void doRequest(AVSRequest avsRequest) {
-
+        ConsoleLogger.print(TAG + ".doRequest", "avsRequest: " + avsRequest);
         Callable<Void> task = new Callable<Void>() {
             @Override
             public Void call() throws Exception {
@@ -253,20 +254,15 @@ public class AVSClient implements ConnectionListener {
     /**
      * Execute the actual request to the server, wait for the response, and handle it.
      *
-     * @param request
-     *            The request to make.
-     * @param requestListener
-     *            The request listener to check request status.
-     * @param multipartParser
-     *            The {@link MultipartParser} to use for parsing the response to this request.
-     * @throws AVSException
-     *             is thrown when we get a non-2xx HTTP status code.
-     * @throws IOException
-     *             is thrown when parsing the multipart stream, and reading from the
-     *             {@link InputStreamResponseListener}.
+     * @param request         The request to make.
+     * @param requestListener The request listener to check request status.
+     * @param multipartParser The {@link MultipartParser} to use for parsing the response to this request.
+     * @throws AVSException is thrown when we get a non-2xx HTTP status code.
+     * @throws IOException  is thrown when parsing the multipart stream, and reading from the
+     *                      {@link InputStreamResponseListener}.
      */
     private void doRequestActual(Request request, Optional<RequestListener> requestListener,
-            MultipartParser multipartParser) throws AVSException, IOException {
+                                 MultipartParser multipartParser) throws AVSException, IOException {
         request.header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken);
 
         InputStreamResponseListener responseListener = new InputStreamResponseListener();
@@ -285,8 +281,12 @@ public class AVSClient implements ConnectionListener {
             }
             inputStream = responseListener.getInputStream();
         } catch (Exception e) {
+            WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
+            WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
+            log.error("Error", e);
             IOUtils.closeQuietly(inputStream);
-            throw new RequestException(e);
+//            throw new RequestException(e);
+            return;
         }
 
         int statusCode = response.getStatus();
@@ -323,8 +323,10 @@ public class AVSClient implements ConnectionListener {
 
             multipartParser.parseStream(inputStream, boundary.get());
         } catch (AVSJsonProcessingException e) {
+            log.error("Error:", e);
             parsingFailedHandler.onParsingFailed(e.getUnparseable());
         } catch (JsonProcessingException e) {
+            log.error("Error:", e);
             String unparseable = IOUtils.toString(inputStream);
             parsingFailedHandler.onParsingFailed(unparseable);
         } finally {
@@ -335,8 +337,7 @@ public class AVSClient implements ConnectionListener {
     /**
      * Parses an exception in the given byte array
      *
-     * @throws AlexaSystemException
-     *             Special case when the server message is itself an Exception.
+     * @throws AlexaSystemException Special case when the server ClickMsg is itself an Exception.
      */
     public void parseException(InputStream inputStream, MessageParser parser)
             throws IOException, AlexaSystemException {
@@ -390,7 +391,7 @@ public class AVSClient implements ConnectionListener {
      * @throws IOException
      */
     public void sendEvent(RequestBody body, InputStream inputStream, RequestListener listener,
-            AudioInputFormat audiotype)
+                          AudioInputFormat audiotype)
             throws JsonGenerationException, JsonMappingException, IOException {
 
         AudioInputStreamContentProvider audioContent =
@@ -427,6 +428,7 @@ public class AVSClient implements ConnectionListener {
         ObjectWriter writer = ObjectMapperFactory.getObjectWriter();
         log.info("Request metadata: \n{}",
                 writer.withDefaultPrettyPrinter().writeValueAsString(body));
+        log.info("Request body: ", body);
         String metadata = writer.writeValueAsString(body);
         StringContentProvider metadataContent =
                 new StringContentProvider(ContentTypes.JSON, metadata, StandardCharsets.UTF_8);
@@ -462,7 +464,7 @@ public class AVSClient implements ConnectionListener {
      * @param accessToken
      */
 
-    private static void setAccessTokenValue(String accessToken){
+    private static void setAccessTokenValue(String accessToken) {
         AVSClient.accessToken = accessToken;
     }
 
@@ -499,10 +501,12 @@ public class AVSClient implements ConnectionListener {
      * When the application shuts down make sure to clean up the HTTPClient
      */
     public void shutdown() {
+        log.info("shutdown");
         try {
             downchannelThread.shutdownGracefully();
             httpClient.stop();
         } catch (Exception e) {
+            log.error("Error:", e);
         }
     }
 
@@ -530,37 +534,38 @@ public class AVSClient implements ConnectionListener {
         private void openConnection() {
             while (running) {
                 log.info("Establishing downchannel");
+                ConsoleLogger.print(TAG + ".DownchannelRequestThread", "openConnection");
                 AVSRequest avsRequest = new AVSRequest(Resource.DIRECTIVES, null,
                         new ExponentialRetryPolicy(REQUEST_RETRY_DELAY_MS, REQUEST_ATTEMPTS),
                         downchannelParser, new RequestListener() {
-                            @Override
-                            public void onRequestError(Throwable e) {
-                                if (shouldExceptionCauseShutdown(e)) {
-                                    shutdownGracefully();
-                                }
-                                resultListener.onFailure();
-                            }
+                    @Override
+                    public void onRequestError(Throwable e) {
+                        if (shouldExceptionCauseShutdown(e)) {
+                            shutdownGracefully();
+                        }
+                        resultListener.onFailure();
+                    }
 
-                            @Override
-                            public void onRequestSuccess() {
-                                resultListener.onSuccess();
-                            }
+                    @Override
+                    public void onRequestSuccess() {
+                        resultListener.onSuccess();
+                    }
 
-                            /**
-                             * Determines if the encountered error is one that should cause the
-                             * downchannel to shutdown.
-                             *
-                             * @param e
-                             *            the encountered error
-                             * @return true if the downchannel should be shutdown, false otherwise
-                             */
-                            private boolean shouldExceptionCauseShutdown(Throwable e) {
-                                return (e instanceof AlexaSystemException)
-                                        && (AlexaSystemExceptionCode.UNAUTHORIZED_REQUEST_EXCEPTION == ((AlexaSystemException) e)
-                                                .getExceptionCode());
-                            }
+                    /**
+                     * Determines if the encountered error is one that should cause the
+                     * downchannel to shutdown.
+                     *
+                     * @param e
+                     *            the encountered error
+                     * @return true if the downchannel should be shutdown, false otherwise
+                     */
+                    private boolean shouldExceptionCauseShutdown(Throwable e) {
+                        return (e instanceof AlexaSystemException)
+                                && (AlexaSystemExceptionCode.UNAUTHORIZED_REQUEST_EXCEPTION == ((AlexaSystemException) e)
+                                .getExceptionCode());
+                    }
 
-                        });
+                });
 
                 doRequest(avsRequest);
 
@@ -575,10 +580,13 @@ public class AVSClient implements ConnectionListener {
         public RequestThread(BlockingQueue<AVSRequest> queue) {
             this.queue = queue;
             setName(this.getClass().getSimpleName());
+            log.info("RequestThread");
         }
 
         @Override
         public void run() {
+            log.info("run");
+            ConsoleLogger.print(TAG + ".RequestThread", "run");
             while (true) {
                 try {
                     AVSRequest request = queue.take();

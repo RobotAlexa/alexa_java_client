@@ -6,14 +6,14 @@
     "locale":"en-US",
     "companionApp":{
         "localPort":8443,
-        "sslKeyStore":"/home/pi/avs/alexa-avs-sample-app/samples/javaclient/certs/server/jetty.pkcs12",
+        "sslKeyStore":"/home/pi/avs/amazon_avs/samples/javaclient/certs/server/jetty.pkcs12",
         "sslKeyStorePassphrase":"",
         "lwaUrl":"https://api.amazon.com"
     },
     "companionService":{
         "serviceUrl":"https://localhost:3000",
-        "sslClientKeyStore":"/home/pi/avs/alexa-avs-sample-app/samples/javaclient/certs/client/client.pkcs12",
+        "sslClientKeyStore":"/home/pi/avs/amazon_avs/samples/javaclient/certs/client/client.pkcs12",
         "sslClientKeyStorePassphrase":"",
-        "sslCaCert":"/home/pi/avs/alexa-avs-sample-app/samples/javaclient/certs/ca/ca.crt"
+        "sslCaCert":"/home/pi/avs/amazon_avs/samples/javaclient/certs/ca/ca.crt"
     }
 }

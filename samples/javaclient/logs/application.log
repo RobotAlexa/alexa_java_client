@@ -3909,3 +3909,47 @@ x-amzn-requestid: 127da9fffe68993a-00006268-0000f9fd-cfe25740c1e69c45-900a9707-5
 16:06:52.151 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Data of receive from : /127.0.0.1
 16:06:52.152 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Received data for tts.{"data":"Hello, I'm Yanshee. This is text to speech!","type":"tts","acount":"13590288056","version":0,"cmd":"voice"}
 16:06:56.884 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,4 more tries...
+19:51:10.432 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+19:51:10.493 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+19:51:11.498 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+19:51:11.510 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+19:51:11.668 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+19:51:16.204 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient starting
+19:51:17.039 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient started
+19:51:17.048 [main] INFO  com.amazon.alexa.avs.http.AVSClient - RequestThread
+19:51:18.512 [pool-7-thread-1] DEBUG com.amazon.alexa.avs.NotificationManager - Loaded notification indicator state from disk
+19:51:18.800 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:20.826 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:22.845 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:24.860 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:26.875 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:28.928 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:30.955 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:32.971 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:34.995 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:37.008 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:39.021 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:41.037 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:43.050 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:45.062 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:47.075 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:49.093 [Thread-25] ERROR com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager - There was a problem connecting to the Companion Service. Trying again in 2 seconds. Please make sure it is up and running.
+19:51:50.190 [Thread-13] INFO  com.amazon.alexa.avs.http.AVSClient - shutdown
+19:58:54.724 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+19:58:54.803 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+19:58:55.809 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+19:58:55.829 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+19:58:56.017 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+19:59:01.447 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient starting
+19:59:02.265 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient started
+19:59:02.270 [main] INFO  com.amazon.alexa.avs.http.AVSClient - RequestThread
+19:59:03.838 [pool-7-thread-1] DEBUG com.amazon.alexa.avs.NotificationManager - Loaded notification indicator state from disk
+19:59:04.844 [Thread-25] ERROR com.amazon.alexa.avs.auth.AuthSetup - Failed to start companion service client
+com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient$RemoteServiceException: BadRequest: The provided product and dsn do not match valid values
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.callService(CompanionServiceClient.java:251) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.getRegistrationCode(CompanionServiceClient.java:157) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.requestRegistrationCode(CompanionServiceAuthManager.java:75) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startNewProvisioningRequest(CompanionServiceAuthManager.java:66) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startRemoteProvisioning(CompanionServiceAuthManager.java:58) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.AuthSetup.lambda$startProvisioningThread$4(AuthSetup.java:90) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_65]

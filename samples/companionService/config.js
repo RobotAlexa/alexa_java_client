@@ -20,9 +20,9 @@ var config = {
     lwaRedirectHost: "amazon.com",
     lwaApiHost: "api.amazon.com",
     validateCertChain: true,
-    sslKey: "/home/pi/avs/alexa-avs-sample-app/samples/javaclient/certs/server/node.key",
-    sslCert: "/home/pi/avs/alexa-avs-sample-app/samples/javaclient/certs/server/node.crt",
-    sslCaCert: "/home/pi/avs/alexa-avs-sample-app/samples/javaclient/certs/ca/ca.crt",
+    sslKey: "/home/pi/avs/amazon_avs/samples/javaclient/certs/server/node.key",
+    sslCert: "/home/pi/avs/amazon_avs/samples/javaclient/certs/server/node.crt",
+    sslCaCert: "/home/pi/avs/amazon_avs/samples/javaclient/certs/ca/ca.crt",
     products: {
         "YansheeC091": ["b8:27:eb:90:c0:91"],
     },

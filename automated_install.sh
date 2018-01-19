@@ -30,7 +30,7 @@ City='SEATTLE'
 # Your organization name/company name. Cannot be blank.
 Organization='AVS_USER'
 # Your device serial number. Cannot be blank, but can be any combination of characters.
-DeviceSerialNumber='b8:27:eb:1f:67:2c'
+DeviceSerialNumber='b8:27:eb:90:c0:91'
 # Your KeyStorePassword. We recommend leaving this blank for testing.
 KeyStorePassword=''
 
@@ -526,7 +526,8 @@ if ! ldconfig -p | grep "libvlc.so "; then
    ln -s $Target_Lib $Java_Client_Loc/lib/libvlc.so
   fi 
 fi
-
+sudo ln -s /usr/lib/arm-linux-gnueabihf/libvlc.so.5 /usr/lib/arm-linux-gnueabihf/libvlc.so
+sudo ln -s /usr/lib/arm-linux-gnueabihf/libvlccore.so.8 /usr/lib/arm-linux-gnueabihf/libvlccore.so
 sudo ldconfig
 
 echo "========== Installing NodeJS =========="

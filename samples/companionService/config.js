@@ -14,17 +14,17 @@
  * not need to modify those elements.
  */
 var config = {
-    clientId: '',
-    clientSecret: '',
+    clientId: "amzn1.application-oa2-client.8d1b0cf3189a44308869ff0025292200",
+    clientSecret: "f008abc3c4a4163132dbc6eb4369ba8da7b2076b0baa547484347f44810e0bfe",
     redirectUrl: 'https://localhost:3000/authresponse',
-    lwaRedirectHost: 'amazon.com',
-    lwaApiHost: 'api.amazon.com',
+    lwaRedirectHost: "amazon.com",
+    lwaApiHost: "api.amazon.com",
     validateCertChain: true,
-    sslKey: '',
-    sslCert: '',
-    sslCaCert: '',
+    sslKey: "/home/pi/avs/alexa-avs-sample-app/samples/javaclient/certs/server/node.key",
+    sslCert: "/home/pi/avs/alexa-avs-sample-app/samples/javaclient/certs/server/node.crt",
+    sslCaCert: "/home/pi/avs/alexa-avs-sample-app/samples/javaclient/certs/ca/ca.crt",
     products: {
-        "": [""], // Fill in with valid device values, eg: "testdevice1": ["DSN1234", "DSN5678"]
+        "YansheeC091": ["b8:27:eb:90:c0:91"],
     },
 };
 

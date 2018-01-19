@@ -194,7 +194,7 @@ check_credentials()
     echo "The information is located under Device Type Info"
     echo "E.g.: RaspberryPi3"
     get_credential 1
-    ProductID=YansheeC091
+    ProductID=$Credential
   fi
 
   echo "-------------------------------"
@@ -224,7 +224,7 @@ check_credentials()
     echo "The information is located under the 'Security Profile' tab."
     echo "E.g.: amzn1.application-oa2-client.xxxxxxxx"
     get_credential 28
-    ClientID=amzn1.application-oa2-client.8d1b0cf3189a44308869ff0025292200
+    ClientID=$Credential
   fi
 
   echo "-------------------------------"
@@ -254,7 +254,7 @@ check_credentials()
     echo "The information is located under the 'Security Profile' tab."
     echo "E.g.: fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxa"
     get_credential 20
-    ClientSecret=f008abc3c4a4163132dbc6eb4369ba8da7b2076b0baa547484347f44810e0bfe
+    ClientSecret=$Credential
   fi
 
   echo "-------------------------------"
@@ -421,7 +421,7 @@ echo ""
 echo "======================================================="
 echo ""
 echo ""
-select_option Locale "en-US" "en-GB" "de-DE"
+select_option Locale "en-US" "en-GB" "de-DE" "en-CA" "en-IN" "ja-JP"
 
 # Force audio to correct output
 clear
@@ -488,6 +488,7 @@ echo ""
 # Install dependencies
 echo "========== Update Aptitude ==========="
 sudo apt-get update
+sudo apt-get upgrade -yq
 
 echo "========== Installing Git ============"
 sudo apt-get install -y git

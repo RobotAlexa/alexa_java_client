@@ -20,11 +20,11 @@ var config = {
     lwaRedirectHost: "amazon.com",
     lwaApiHost: "api.amazon.com",
     validateCertChain: true,
-    sslKey: "/home/pi/amazon_avs/samples/javaclient/certs/server/node.key",
-    sslCert: "/home/pi/amazon_avs/samples/javaclient/certs/server/node.crt",
-    sslCaCert: "/home/pi/amazon_avs/samples/javaclient/certs/ca/ca.crt",
+    sslKey: "/home/pi/avs/amazon_avs/samples/javaclient/certs/server/node.key",
+    sslCert: "/home/pi/avs/amazon_avs/samples/javaclient/certs/server/node.crt",
+    sslCaCert: "/home/pi/avs/amazon_avs/samples/javaclient/certs/ca/ca.crt",
     products: {
-        "YansheeC091": ["123456789"],
+        "YansheeC091": ["b8:27:eb:1f:67:2c"],
     },
 };
 

@@ -30,7 +30,7 @@ City='SEATTLE'
 # Your organization name/company name. Cannot be blank.
 Organization='AVS_USER'
 # Your device serial number. Cannot be blank, but can be any combination of characters.
-DeviceSerialNumber='123456789'
+DeviceSerialNumber='b8:27:eb:1f:67:2c'
 # Your KeyStorePassword. We recommend leaving this blank for testing.
 KeyStorePassword=''
 

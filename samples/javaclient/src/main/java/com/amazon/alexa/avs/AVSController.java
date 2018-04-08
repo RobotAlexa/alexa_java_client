@@ -454,13 +454,12 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
 
         String directiveName = directive.getName();
         log.info("Handling directive: {}.{}", directiveNamespace, directiveName);
-        ConsoleLogger.print(AVSController.class.getName(), directiveName + ", " + directiveNamespace + " " + new Gson().toJson(directive));
         if (dialogRequestIdAuthority.isCurrentDialogRequestId(directive.getDialogRequestId())) {
             speechRequestAudioPlayerPauseController.dispatchDirective();
         }
         try {
             if (AVSAPIConstants.SpeechRecognizer.NAMESPACE.equals(directiveNamespace)) {
-                ConsoleLogger.print(AVSController.class.getName(), "handleSpeechRecognizerDirective");
+                ConsoleLogger.print(AVSController.class.getName(), "handleSpeechRecognizerDirective" + " " + new Gson().toJson(directive));
                 handleSpeechRecognizerDirective(directive);
             } else if (AVSAPIConstants.SpeechSynthesizer.NAMESPACE.equals(directiveNamespace)) {
                 ConsoleLogger.print(AVSController.class.getName(), "handleSpeechSynthesizerDirective");
@@ -469,22 +468,22 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
                 ConsoleLogger.print(AVSController.class.getName(), "handleAudioPlayerDirective");
                 handleAudioPlayerDirective(directive);
             } else if (AVSAPIConstants.Alerts.NAMESPACE.equals(directiveNamespace)) {
-                ConsoleLogger.print(AVSController.class.getName(), "handleAlertsDirective");
+                ConsoleLogger.print(AVSController.class.getName(), "handleAlertsDirective" + " " + new Gson().toJson(directive));
                 handleAlertsDirective(directive);
             } else if (AVSAPIConstants.Notifications.NAMESPACE.equals(directiveNamespace)) {
-                ConsoleLogger.print(AVSController.class.getName(), "handleNotificationsDirective");
+                ConsoleLogger.print(AVSController.class.getName(), "handleNotificationsDirective" + " " + new Gson().toJson(directive));
                 handleNotificationsDirective(directive);
             } else if (AVSAPIConstants.Speaker.NAMESPACE.equals(directiveNamespace)) {
                 ConsoleLogger.print(AVSController.class.getName(), "handleSpeakerDirective");
                 handleSpeakerDirective(directive);
             } else if (AVSAPIConstants.System.NAMESPACE.equals(directiveNamespace)) {
-                ConsoleLogger.print(AVSController.class.getName(), "handleSystemDirective");
+                ConsoleLogger.print(AVSController.class.getName(), "handleSystemDirective" + " " + new Gson().toJson(directive));
                 handleSystemDirective(directive);
             } else if (AVSAPIConstants.TemplateRuntime.NAMESPACE.equals(directiveNamespace)) {
-                ConsoleLogger.print(AVSController.class.getName(), "handleTemplateRuntimeDirective");
+                ConsoleLogger.print(AVSController.class.getName(), "handleTemplateRuntimeDirective" + " " + new Gson().toJson(directive));
                 handleTemplateRuntimeDirective(directive);
             } else {
-                ConsoleLogger.print(AVSController.class.getName(), "DirectiveHandlingException");
+                ConsoleLogger.print(AVSController.class.getName(), "DirectiveHandlingException" + " " + new Gson().toJson(directive));
                 throw new DirectiveHandlingException(ExceptionType.UNSUPPORTED_OPERATION,
                         "No device side component to handle the directive.");
             }

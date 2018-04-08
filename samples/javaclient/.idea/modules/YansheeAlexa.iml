@@ -21,25 +21,25 @@
     <orderEntry type="library" name="Maven: net.java.dev.jna:platform:3.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:javax.json:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: javazoom:jlayer:1.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.mortbay.jetty.alpn:alpn-boot:8.1.11.v20170118" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty.alpn:alpn-boot:8.1.6.v20151105" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.10" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.3" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-alpn-client:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-client:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-http-client-transport:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-hpack:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-common:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.3.7.v20160115" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-client:9.3.7.v20160115" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-alpn-client:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-client:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-http-client-transport:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-hpack:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.http2:http2-common:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.3.22.v20171030" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-client:9.3.22.v20171030" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.2.4" level="project" />

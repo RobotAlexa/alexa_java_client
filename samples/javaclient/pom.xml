@@ -9,7 +9,7 @@
     <url>https://developer.amazon.com/appsandservices/solutions/alexa/alexa-voice-service</url>
 
     <properties>
-        <jetty.version>9.3.7.v20160115</jetty.version>
+        <jetty.version>9.3.22.v20171030</jetty.version>
         <!-- The latest version of alpn-boot that supports JDK 1.8.0_151 -->
         <!-- To override, pass -Dalpn-boot.version=YOUR_VERSION when running "mvn install" and "mvn exec:exec" -->
         <!-- Your version can be determined here: http://www.eclipse.org/jetty/documentation/current/alpn-chapter.html#alpn-versions -->
@@ -216,6 +216,22 @@
                             <argument>-Djna.library.path=${env.VLC_PATH}:./lib</argument>
                             <argument>com.amazon.alexa.avs.App</argument>
                         </arguments>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
                     </configuration>
                 </plugin>
                 <plugin>

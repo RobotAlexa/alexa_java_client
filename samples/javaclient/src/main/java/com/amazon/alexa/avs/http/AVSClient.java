@@ -64,17 +64,14 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Optional;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Callable;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class AVSClient implements ConnectionListener {
     private static final Logger log = LoggerFactory.getLogger(AVSClient.class);
     private static final String TAG = AVSClient.class.getSimpleName();
 
-    private static final int REQUEST_TIMEOUT_IN_S = 20;
-    private static final int REQUEST_ATTEMPTS = 3;
+    private static final int REQUEST_TIMEOUT_IN_S = 60;
+    private static final int REQUEST_ATTEMPTS = 10;
     private static final long REQUEST_RETRY_DELAY_MS = 1000;
 
     private static final String EVENTS_ENDPOINT = "/v20160207/events";
@@ -266,7 +263,7 @@ public class AVSClient implements ConnectionListener {
         request.header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken);
 
         InputStreamResponseListener responseListener = new InputStreamResponseListener();
-        Response response;
+        Response response = null;
         InputStream inputStream = null;
 
         try {
@@ -277,7 +274,15 @@ public class AVSClient implements ConnectionListener {
             // requests.
             synchronized (this) {
                 request.send(responseListener);
-                response = responseListener.get(REQUEST_TIMEOUT_IN_S, TimeUnit.SECONDS);
+                int i = 10;
+                while (i-- > 0) {
+                    try {
+                        response = responseListener.get(REQUEST_TIMEOUT_IN_S, TimeUnit.SECONDS);
+                        break;
+                    } catch (TimeoutException e) {
+                        continue;
+                    }
+                }
             }
             inputStream = responseListener.getInputStream();
         } catch (Exception e) {
@@ -288,6 +293,7 @@ public class AVSClient implements ConnectionListener {
 //            throw new RequestException(e);
             return;
         }
+        if (response == null) return;
 
         int statusCode = response.getStatus();
         log.info("Response code: {}", statusCode);
@@ -320,7 +326,7 @@ public class AVSClient implements ConnectionListener {
                         "A boundary is missing from the response headers. "
                                 + "Unable to parse multipart stream.");
             }
-
+            ConsoleLogger.print(AVSClient.class.getName(), "doRequestActual parseStream");
             multipartParser.parseStream(inputStream, boundary.get());
         } catch (AVSJsonProcessingException e) {
             log.error("Error:", e);

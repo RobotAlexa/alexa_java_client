@@ -25,6 +25,7 @@ import com.amazon.alexa.avs.http.AVSClientFactory;
 import com.amazon.alexa.avs.http.LinearRetryPolicy;
 import com.amazon.alexa.avs.http.ParsingFailedHandler;
 import com.amazon.alexa.avs.listener.*;
+import com.amazon.alexa.avs.log.ConsoleLogger;
 import com.amazon.alexa.avs.message.request.RequestBody;
 import com.amazon.alexa.avs.message.request.RequestFactory;
 import com.amazon.alexa.avs.message.request.settings.LocaleSetting;
@@ -53,6 +54,7 @@ import com.amazon.alexa.avs.wakeword.WakeWordIPC;
 import com.amazon.alexa.avs.wakeword.WakeWordIPC.IPCCommand;
 import com.amazon.alexa.avs.wakeword.WakeWordIPCFactory;
 
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -452,27 +454,37 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
 
         String directiveName = directive.getName();
         log.info("Handling directive: {}.{}", directiveNamespace, directiveName);
+        ConsoleLogger.print(AVSController.class.getName(), directiveName + ", " + directiveNamespace + " " + new Gson().toJson(directive));
         if (dialogRequestIdAuthority.isCurrentDialogRequestId(directive.getDialogRequestId())) {
             speechRequestAudioPlayerPauseController.dispatchDirective();
         }
         try {
             if (AVSAPIConstants.SpeechRecognizer.NAMESPACE.equals(directiveNamespace)) {
+                ConsoleLogger.print(AVSController.class.getName(), "handleSpeechRecognizerDirective");
                 handleSpeechRecognizerDirective(directive);
             } else if (AVSAPIConstants.SpeechSynthesizer.NAMESPACE.equals(directiveNamespace)) {
+                ConsoleLogger.print(AVSController.class.getName(), "handleSpeechSynthesizerDirective");
                 handleSpeechSynthesizerDirective(directive);
             } else if (AVSAPIConstants.AudioPlayer.NAMESPACE.equals(directiveNamespace)) {
+                ConsoleLogger.print(AVSController.class.getName(), "handleAudioPlayerDirective");
                 handleAudioPlayerDirective(directive);
             } else if (AVSAPIConstants.Alerts.NAMESPACE.equals(directiveNamespace)) {
+                ConsoleLogger.print(AVSController.class.getName(), "handleAlertsDirective");
                 handleAlertsDirective(directive);
             } else if (AVSAPIConstants.Notifications.NAMESPACE.equals(directiveNamespace)) {
+                ConsoleLogger.print(AVSController.class.getName(), "handleNotificationsDirective");
                 handleNotificationsDirective(directive);
             } else if (AVSAPIConstants.Speaker.NAMESPACE.equals(directiveNamespace)) {
+                ConsoleLogger.print(AVSController.class.getName(), "handleSpeakerDirective");
                 handleSpeakerDirective(directive);
             } else if (AVSAPIConstants.System.NAMESPACE.equals(directiveNamespace)) {
+                ConsoleLogger.print(AVSController.class.getName(), "handleSystemDirective");
                 handleSystemDirective(directive);
             } else if (AVSAPIConstants.TemplateRuntime.NAMESPACE.equals(directiveNamespace)) {
+                ConsoleLogger.print(AVSController.class.getName(), "handleTemplateRuntimeDirective");
                 handleTemplateRuntimeDirective(directive);
             } else {
+                ConsoleLogger.print(AVSController.class.getName(), "DirectiveHandlingException");
                 throw new DirectiveHandlingException(ExceptionType.UNSUPPORTED_OPERATION,
                         "No device side component to handle the directive.");
             }

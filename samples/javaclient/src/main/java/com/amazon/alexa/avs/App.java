@@ -33,6 +33,7 @@ import com.amazon.alexa.avs.wakeword.WakeWordIPCFactory;
 import javazoom.jl.decoder.JavaLayerException;
 
 import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 
 public class App {
 
@@ -47,6 +48,12 @@ public class App {
             new App(args[0]);
         } else {
             new App();
+        }
+
+        try {
+            Runtime.getRuntime().exec("sudo service ubtedu stop");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,19 +1,23 @@
 {
-    "productId":"YansheeC091",
-    "dsn":"123456789",
+    "productId":"Yanshee",
+    "dsn":"b8:27:eb:9a:ee:76",
     "provisioningMethod":"companionService",
     "wakeWordAgentEnabled":true,
+    "headless":false,
+    "uiEnable":true,
     "locale":"en-US",
+    "avsHost":"https://avs-alexa-na.amazon.com",
     "companionApp":{
         "localPort":8443,
-        "sslKeyStore":"/home/pi/amazon_avs/samples/javaclient/certs/server/jetty.pkcs12",
-        "sslKeyStorePassphrase":"",
-        "lwaUrl":"https://api.amazon.com"
+        "lwaUrl":"https://api.amazon.com",
+        "sslKeyStore":"/home/pi/Desktop/Alexa-java-client/samples/javaclient/certs/server/jetty.pkcs12",
+        "sslKeyStorePassphrase":""
     },
     "companionService":{
         "serviceUrl":"https://localhost:3000",
-        "sslClientKeyStore":"/home/pi/amazon_avs/samples/javaclient/certs/client/client.pkcs12",
+        "sslClientKeyStore":"/home/pi/Desktop/Alexa-java-client/samples/javaclient/certs/client/client.pkcs12",
         "sslClientKeyStorePassphrase":"",
-        "sslCaCert":"/home/pi/amazon_avs/samples/javaclient/certs/ca/ca.crt"
+        "sslCaCert":"/home/pi/Desktop/Alexa-java-client/samples/javaclient/certs/ca/ca.crt",
+        "sessionId":"05e80f50-7345-4254-b60f-320583a4a25b"
     }
 }

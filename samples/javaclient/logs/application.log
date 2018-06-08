@@ -3909,3 +3909,1630 @@ x-amzn-requestid: 127da9fffe68993a-00006268-0000f9fd-cfe25740c1e69c45-900a9707-5
 16:06:52.151 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Data of receive from : /127.0.0.1
 16:06:52.152 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Received data for tts.{"data":"Hello, I'm Yanshee. This is text to speech!","type":"tts","acount":"13590288056","version":0,"cmd":"voice"}
 16:06:56.884 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,4 more tries...
+11:58:13.538 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+11:58:13.629 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+11:58:14.634 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+11:58:14.655 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+11:58:14.795 [main] WARN  com.amazon.alexa.avs.AVSController - Could not open microphone line
+11:58:14.796 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+11:58:14.814 [main] WARN  com.amazon.alexa.avs.AVSController - Could not open the microphone line.
+11:58:15.137 [Thread-2] INFO  com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - New IPC client was accepted, current of current clients is 1
+12:02:46.111 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+12:02:46.130 [Thread-1] ERROR com.amazon.alexa.avs.tts.TTSUdpServer - Error: Address already in use
+java.net.BindException: Address already in use
+	at java.net.PlainDatagramSocketImpl.bind0(Native Method) ~[?:1.8.0_65]
+	at java.net.AbstractPlainDatagramSocketImpl.bind(AbstractPlainDatagramSocketImpl.java:94) ~[?:1.8.0_65]
+	at java.net.DatagramSocket.bind(DatagramSocket.java:392) ~[?:1.8.0_65]
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:242) ~[?:1.8.0_65]
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:299) ~[?:1.8.0_65]
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:271) ~[?:1.8.0_65]
+	at com.amazon.alexa.avs.tts.TTSUdpServer.lambda$initListener$0(TTSUdpServer.java:45) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_65]
+12:02:46.162 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+12:02:46.167 [main] ERROR com.amazon.alexa.avs.AVSController - Error creating Wake Word IPC ok.
+java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method) ~[?:1.8.0_65]
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387) ~[?:1.8.0_65]
+	at java.net.ServerSocket.bind(ServerSocket.java:375) ~[?:1.8.0_65]
+	at java.net.ServerSocket.<init>(ServerSocket.java:237) ~[?:1.8.0_65]
+	at com.amazon.alexa.avs.wakeword.WakeWordIPCSocket.<init>(WakeWordIPCSocket.java:34) ~[classes/:?]
+	at com.amazon.alexa.avs.wakeword.WakeWordIPCFactory.createWakeWordIPC(WakeWordIPCFactory.java:21) ~[classes/:?]
+	at com.amazon.alexa.avs.AVSController.<init>(AVSController.java:148) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:79) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:54) [classes/:?]
+	at com.amazon.alexa.avs.App.main(App.java:49) [classes/:?]
+12:02:46.177 [main] WARN  com.amazon.alexa.avs.http.AbstractRetryPolicy - Error occured while making call. This call will retry.
+java.lang.NullPointerException
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:260) ~[classes/:?]
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:256) ~[classes/:?]
+	at com.amazon.alexa.avs.http.AbstractRetryPolicy.tryCall(AbstractRetryPolicy.java:38) [classes/:?]
+	at com.amazon.alexa.avs.AVSController.initializeMicrophone(AVSController.java:273) [classes/:?]
+	at com.amazon.alexa.avs.AVSController.<init>(AVSController.java:157) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:79) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:54) [classes/:?]
+	at com.amazon.alexa.avs.App.main(App.java:49) [classes/:?]
+12:02:47.179 [main] WARN  com.amazon.alexa.avs.http.AbstractRetryPolicy - Error occured while making call. This call will retry.
+java.lang.NullPointerException
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:260) ~[classes/:?]
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:256) ~[classes/:?]
+	at com.amazon.alexa.avs.http.AbstractRetryPolicy.tryCall(AbstractRetryPolicy.java:38) [classes/:?]
+	at com.amazon.alexa.avs.AVSController.initializeMicrophone(AVSController.java:273) [classes/:?]
+	at com.amazon.alexa.avs.AVSController.<init>(AVSController.java:157) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:79) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:54) [classes/:?]
+	at com.amazon.alexa.avs.App.main(App.java:49) [classes/:?]
+12:02:49.181 [main] WARN  com.amazon.alexa.avs.http.AbstractRetryPolicy - Error occured while making call. This call will retry.
+java.lang.NullPointerException
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:260) ~[classes/:?]
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:256) ~[classes/:?]
+	at com.amazon.alexa.avs.http.AbstractRetryPolicy.tryCall(AbstractRetryPolicy.java:38) [classes/:?]
+	at com.amazon.alexa.avs.AVSController.initializeMicrophone(AVSController.java:273) [classes/:?]
+	at com.amazon.alexa.avs.AVSController.<init>(AVSController.java:157) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:79) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:54) [classes/:?]
+	at com.amazon.alexa.avs.App.main(App.java:49) [classes/:?]
+12:02:52.183 [main] WARN  com.amazon.alexa.avs.http.AbstractRetryPolicy - Error occured while making call. This call will retry.
+java.lang.NullPointerException
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:260) ~[classes/:?]
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:256) ~[classes/:?]
+	at com.amazon.alexa.avs.http.AbstractRetryPolicy.tryCall(AbstractRetryPolicy.java:38) [classes/:?]
+	at com.amazon.alexa.avs.AVSController.initializeMicrophone(AVSController.java:273) [classes/:?]
+	at com.amazon.alexa.avs.AVSController.<init>(AVSController.java:157) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:79) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:54) [classes/:?]
+	at com.amazon.alexa.avs.App.main(App.java:49) [classes/:?]
+12:02:56.185 [main] ERROR com.amazon.alexa.avs.AVSController - There was a problem connecting to the wake word engine.
+java.lang.NullPointerException
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:260) ~[classes/:?]
+	at com.amazon.alexa.avs.AVSController$3.call(AVSController.java:256) ~[classes/:?]
+	at com.amazon.alexa.avs.http.AbstractRetryPolicy.tryCall(AbstractRetryPolicy.java:38) ~[classes/:?]
+	at com.amazon.alexa.avs.AVSController.initializeMicrophone(AVSController.java:273) [classes/:?]
+	at com.amazon.alexa.avs.AVSController.<init>(AVSController.java:157) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:79) [classes/:?]
+	at com.amazon.alexa.avs.App.<init>(App.java:54) [classes/:?]
+	at com.amazon.alexa.avs.App.main(App.java:49) [classes/:?]
+12:02:56.273 [main] WARN  com.amazon.alexa.avs.AVSController - Could not open the microphone line.
+12:03:35.122 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+12:03:35.167 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+12:03:35.501 [Thread-2] INFO  com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - New IPC client was accepted, current of current clients is 1
+12:03:36.171 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+12:03:36.178 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+12:03:36.256 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+12:04:33.563 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+12:04:33.624 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+12:04:34.189 [Thread-2] INFO  com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - New IPC client was accepted, current of current clients is 1
+12:04:34.629 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+12:04:34.639 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+12:04:34.720 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+12:08:22.036 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+12:08:22.106 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+12:08:23.111 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+12:08:23.121 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+12:08:23.217 [main] WARN  com.amazon.alexa.avs.AVSController - Could not open microphone line
+12:08:23.217 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+12:08:23.233 [main] WARN  com.amazon.alexa.avs.AVSController - Could not open the microphone line.
+12:08:23.482 [Thread-2] INFO  com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - New IPC client was accepted, current of current clients is 1
+12:11:42.945 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+12:11:42.997 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+12:11:44.001 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+12:11:44.015 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+12:11:44.089 [main] WARN  com.amazon.alexa.avs.AVSController - Could not open microphone line
+12:11:44.090 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+12:11:44.106 [main] WARN  com.amazon.alexa.avs.AVSController - Could not open the microphone line.
+12:11:44.348 [Thread-2] INFO  com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - New IPC client was accepted, current of current clients is 1
+12:24:59.367 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+12:24:59.470 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+12:25:00.476 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+12:25:00.493 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+12:25:00.595 [main] WARN  com.amazon.alexa.avs.AVSController - Could not open microphone line
+12:25:00.595 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+12:25:00.615 [main] WARN  com.amazon.alexa.avs.AVSController - Could not open the microphone line.
+12:25:00.984 [Thread-2] INFO  com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - New IPC client was accepted, current of current clients is 1
+12:47:32.528 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+12:47:32.634 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+12:47:33.639 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+12:47:33.658 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+12:47:33.874 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+12:55:35.207 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+12:55:35.277 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+12:55:36.282 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+12:55:36.311 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+12:55:36.444 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+12:55:41.966 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient starting
+12:55:42.866 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient started
+12:55:42.875 [main] INFO  com.amazon.alexa.avs.http.AVSClient - RequestThread
+12:55:45.061 [pool-7-thread-1] DEBUG com.amazon.alexa.avs.NotificationManager - Loaded notification indicator state from disk
+12:55:46.487 [Thread-25] ERROR com.amazon.alexa.avs.auth.AuthSetup - Failed to start companion service client
+com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient$RemoteServiceException: BadRequest: The provided product and dsn do not match valid values
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.callService(CompanionServiceClient.java:251) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.getRegistrationCode(CompanionServiceClient.java:157) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.requestRegistrationCode(CompanionServiceAuthManager.java:75) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startNewProvisioningRequest(CompanionServiceAuthManager.java:66) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startRemoteProvisioning(CompanionServiceAuthManager.java:58) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.AuthSetup.lambda$startProvisioningThread$1(AuthSetup.java:90) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_65]
+12:55:54.783 [Thread-27] ERROR com.amazon.alexa.avs.auth.AuthSetup - Failed to start companion service client
+com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient$RemoteServiceException: BadRequest: The provided product and dsn do not match valid values
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.callService(CompanionServiceClient.java:251) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.getRegistrationCode(CompanionServiceClient.java:157) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.requestRegistrationCode(CompanionServiceAuthManager.java:75) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startNewProvisioningRequest(CompanionServiceAuthManager.java:66) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startRemoteProvisioning(CompanionServiceAuthManager.java:58) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.AuthSetup.lambda$startProvisioningThread$1(AuthSetup.java:90) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_65]
+13:34:30.857 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+13:34:30.913 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+13:34:31.917 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+13:34:31.927 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:34:32.025 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:34:33.897 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient starting
+13:34:34.624 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient started
+13:34:34.627 [main] INFO  com.amazon.alexa.avs.http.AVSClient - RequestThread
+13:34:35.629 [pool-7-thread-1] DEBUG com.amazon.alexa.avs.NotificationManager - Loaded notification indicator state from disk
+13:34:36.503 [Thread-25] ERROR com.amazon.alexa.avs.auth.AuthSetup - Failed to start companion service client
+com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient$RemoteServiceException: BadRequest: The provided product and dsn do not match valid values
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.callService(CompanionServiceClient.java:251) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.getRegistrationCode(CompanionServiceClient.java:157) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.requestRegistrationCode(CompanionServiceAuthManager.java:75) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startNewProvisioningRequest(CompanionServiceAuthManager.java:66) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startRemoteProvisioning(CompanionServiceAuthManager.java:58) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.AuthSetup.lambda$startProvisioningThread$1(AuthSetup.java:90) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_65]
+13:35:16.425 [Thread-13] INFO  com.amazon.alexa.avs.http.AVSClient - shutdown
+13:35:16.437 [Thread-13] ERROR com.amazon.alexa.avs.http.AVSClient - Error:
+java.lang.NullPointerException
+	at com.amazon.alexa.avs.http.AVSClient.shutdown(AVSClient.java:506) [classes/:?]
+	at com.amazon.alexa.avs.AVSController$2.run(AVSController.java:216) [classes/:?]
+13:35:36.466 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+13:35:36.510 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+13:35:37.515 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+13:35:37.525 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:35:37.621 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:35:39.429 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient starting
+13:35:40.126 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient started
+13:35:40.129 [main] INFO  com.amazon.alexa.avs.http.AVSClient - RequestThread
+13:35:41.140 [pool-7-thread-1] DEBUG com.amazon.alexa.avs.NotificationManager - Loaded notification indicator state from disk
+13:35:41.942 [Thread-25] ERROR com.amazon.alexa.avs.auth.AuthSetup - Failed to start companion service client
+com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient$RemoteServiceException: BadRequest: The provided product and dsn do not match valid values
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.callService(CompanionServiceClient.java:251) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceClient.getRegistrationCode(CompanionServiceClient.java:157) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.requestRegistrationCode(CompanionServiceAuthManager.java:75) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startNewProvisioningRequest(CompanionServiceAuthManager.java:66) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.companionservice.CompanionServiceAuthManager.startRemoteProvisioning(CompanionServiceAuthManager.java:58) ~[classes/:?]
+	at com.amazon.alexa.avs.auth.AuthSetup.lambda$startProvisioningThread$1(AuthSetup.java:90) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_65]
+13:46:04.147 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+13:46:04.232 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+13:46:05.238 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+13:46:05.249 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:46:05.391 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:46:07.257 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient starting
+13:46:07.907 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient started
+13:46:07.910 [main] INFO  com.amazon.alexa.avs.http.AVSClient - RequestThread
+13:46:08.918 [pool-7-thread-1] DEBUG com.amazon.alexa.avs.NotificationManager - Loaded notification indicator state from disk
+13:53:35.072 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - run
+13:53:35.083 [Thread-25] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Start listen real button click event.
+13:53:35.083 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Establishing downchannel
+13:53:37.592 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 200
+13:53:37.594 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 0eb976fffe52a282-0000175b-00025d96-2af178ef05377a85-24d87840-1
+content-type: multipart/related; boundary=------abcde123; type=application/json
+
+
+13:53:37.597 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.AVSController - Start sending SynchronizeStateEvent
+13:53:38.756 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "System",
+      "name" : "SynchronizeState",
+      "messageId" : "8fbd889b-5790-425f-8de4-2170bc166448"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  }, {
+    "header" : {
+      "namespace" : "Notifications",
+      "name" : "IndicatorState"
+    },
+    "payload" : {
+      "isEnabled" : false,
+      "isVisualIndicatorPersisted" : false
+    }
+  } ]
+}
+13:53:38.757 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:53:38.831 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "Settings",
+      "name" : "SettingsUpdated",
+      "messageId" : "006d906f-888f-4b34-a259-0e0a5cc47b4d"
+    },
+    "payload" : {
+      "settings" : [ {
+        "key" : "locale",
+        "value" : "en-US"
+      } ]
+    }
+  }
+}
+13:53:38.832 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:53:39.026 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Data of receive from : /127.0.0.1
+13:53:39.027 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Received data for tts.{
+	"cmd":	"voice",
+	"type":	"tts",
+	"port":	0,
+	"is_interrupted":	0,
+	"data":	"Yanshee启动完毕"
+}
+13:53:39.736 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:53:39.737 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 0eb976fffe52a282-0000175b-000235f6-d6a9883cd0cee698-59664ec7-25
+
+
+13:53:39.741 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:53:40.285 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:53:40.286 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 0eb976fffe52a282-0000175b-00025d96-2af178ef05377a85-24d87840-5
+
+
+13:53:40.299 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:53:44.026 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Data of receive from : /127.0.0.1
+13:53:44.026 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Received data for tts.{
+	"cmd":	"voice",
+	"type":	"tts",
+	"port":	0,
+	"is_interrupted":	0,
+	"data":	"你已经连网成功"
+}
+13:53:45.180 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,4 more tries...
+13:53:51.601 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Data of receive from : /127.0.0.1
+13:53:51.602 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Received data from button click event.{
+	"cmd":	"voice",
+	"type":	"button",
+	"port":	0,
+	"data":	""
+}
+13:53:51.613 [Thread-27] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:53:51.679 [Thread-27] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - startUdpServer(), udp server started
+13:53:51.746 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=0, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:53:51.762 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=0, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437231750, msgType=SendMsg, enddecode=}
+13:53:51.763 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=1, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:53:51.771 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=1, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437231770, msgType=SendMsg, enddecode=}
+13:53:51.797 [Thread-27] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "Recognize",
+      "messageId" : "0a6ab8e2-9a37-4f11-8f6b-0a47876cc9a0",
+      "dialogRequestId" : "debeb6d9-fdbf-4416-aa68-3a9a2a704541"
+    },
+    "payload" : {
+      "profile" : "NEAR_FIELD",
+      "format" : "AUDIO_L16_RATE_16000_CHANNELS_1"
+    }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:53:51.798 [Thread-27] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:53:51.805 [Thread-27] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Speech request started
+13:53:51.806 [Thread-27] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Interrupting all Alexa output
+13:53:51.808 [RequestThread] INFO  com.amazon.alexa.avs.http.CachingContentProvider - Create new CachingIterator
+13:53:57.757 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.MessageParser - Response metadata: 
+{
+  "directive" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "StopCapture",
+      "messageId" : "baeeac4a-8e97-498f-bb8f-9cfb985bfd48"
+    },
+    "payload" : { }
+  }
+}
+13:53:57.860 [IndependentDirectiveThread] INFO  com.amazon.alexa.avs.AVSController - Handling directive: SpeechRecognizer.StopCapture
+13:53:57.882 [IndependentDirectiveThread] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished listening to user speech
+13:53:57.897 [IndependentDirectiveThread] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:53:57.906 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=2, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:53:57.907 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=2, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437237907, msgType=SendMsg, enddecode=}
+13:53:57.910 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=3, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:53:57.911 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=3, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437237911, msgType=SendMsg, enddecode=}
+13:53:58.233 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:53:58.233 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 0eb976fffe52a282-0000175b-00025d95-e760406f05377a72-41a5b9c5-7
+
+
+13:53:58.233 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:53:58.234 [RequestThread] DEBUG com.amazon.alexa.avs.AVSController - Speech processing finished. Dependent queue size: 0
+13:53:58.234 [RequestThread] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished processing speech request
+13:53:58.243 [Thread-35] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Started resume audio thread
+13:53:58.249 [Thread-35] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Resuming all Alexa output
+13:53:58.250 [Thread-35] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Resuming all Alexa output
+13:54:01.924 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,4 more tries...
+13:54:06.432 [Thread-13] INFO  com.amazon.alexa.avs.http.AVSClient - shutdown
+13:54:06.433 [Thread-13] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient stopping
+13:54:06.438 [Thread-13] INFO  com.amazon.alexa.avs.http.AVSClient - [java.lang.Thread.getStackTrace(Thread.java:1552), com.amazon.alexa.avs.http.AVSClient$1.lifeCycleStopping(AVSClient.java:196), org.eclipse.jetty.util.component.AbstractLifeCycle.setStopping(AbstractLifeCycle.java:197), org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:88), com.amazon.alexa.avs.http.AVSClient.shutdown(AVSClient.java:513), com.amazon.alexa.avs.AVSController$2.run(AVSController.java:218)]
+13:54:48.646 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+13:54:48.663 [Thread-1] ERROR com.amazon.alexa.avs.tts.TTSUdpServer - Error: Address already in use
+java.net.BindException: Address already in use
+	at java.net.PlainDatagramSocketImpl.bind0(Native Method) ~[?:1.8.0_65]
+	at java.net.AbstractPlainDatagramSocketImpl.bind(AbstractPlainDatagramSocketImpl.java:94) ~[?:1.8.0_65]
+	at java.net.DatagramSocket.bind(DatagramSocket.java:392) ~[?:1.8.0_65]
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:242) ~[?:1.8.0_65]
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:299) ~[?:1.8.0_65]
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:271) ~[?:1.8.0_65]
+	at com.amazon.alexa.avs.tts.TTSUdpServer.lambda$initListener$56(TTSUdpServer.java:45) ~[classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_65]
+13:54:48.721 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+13:54:49.726 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+13:54:49.747 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:54:49.834 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:54:52.151 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient starting
+13:54:52.892 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient started
+13:54:52.901 [main] INFO  com.amazon.alexa.avs.http.AVSClient - RequestThread
+13:55:36.775 [main] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Start tts server.
+13:55:36.820 [main] INFO  com.amazon.alexa.avs.AVSController - Creating Wake Word IPC | port number: 5123
+13:55:37.824 [main] INFO  com.amazon.alexa.avs.AVSController - Created Wake Word IPC ok.
+13:55:37.834 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:55:37.946 [main] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:55:39.814 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient starting
+13:55:40.533 [main] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient started
+13:55:40.537 [main] INFO  com.amazon.alexa.avs.http.AVSClient - RequestThread
+13:55:41.528 [pool-7-thread-1] DEBUG com.amazon.alexa.avs.NotificationManager - Loaded notification indicator state from disk
+13:55:44.608 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - run
+13:55:44.612 [Thread-25] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Start listen real button click event.
+13:55:44.612 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Establishing downchannel
+13:55:46.811 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:55:46.913 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - startUdpServer(), udp server started
+13:55:47.014 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 200
+13:55:47.015 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e57f-6717ca52021b64cd-4c238e76-1
+content-type: multipart/related; boundary=------abcde123; type=application/json
+
+
+13:55:47.021 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.AVSController - Start sending SynchronizeStateEvent
+13:55:47.244 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=0, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:55:47.247 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=0, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437347247, msgType=SendMsg, enddecode=}
+13:55:47.249 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=1, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:55:47.260 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=1, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437347250, msgType=SendMsg, enddecode=}
+13:55:47.808 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Data of receive from : /127.0.0.1
+13:55:47.809 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Received data for tts.{
+	"cmd":	"voice",
+	"type":	"tts",
+	"port":	0,
+	"is_interrupted":	0,
+	"data":	"Yanshee启动完毕"
+}
+13:55:48.092 [AWT-EventQueue-0] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "Recognize",
+      "messageId" : "d5c4f748-ee0e-45ce-bb3e-26203c8dffaf",
+      "dialogRequestId" : "d7e60e0d-171a-4fe8-87bd-ba86e0ad5a87"
+    },
+    "payload" : {
+      "profile" : "NEAR_FIELD",
+      "format" : "AUDIO_L16_RATE_16000_CHANNELS_1"
+    }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:55:48.093 [AWT-EventQueue-0] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:55:48.094 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "System",
+      "name" : "SynchronizeState",
+      "messageId" : "90e87279-e067-47f6-8cdb-e0032be8a26e"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  }, {
+    "header" : {
+      "namespace" : "Notifications",
+      "name" : "IndicatorState"
+    },
+    "payload" : {
+      "isEnabled" : false,
+      "isVisualIndicatorPersisted" : false
+    }
+  } ]
+}
+13:55:48.095 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:55:48.104 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Speech request started
+13:55:48.105 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Interrupting all Alexa output
+13:55:48.147 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "Settings",
+      "name" : "SettingsUpdated",
+      "messageId" : "4f6680af-3f43-43ba-9f1d-bdc692b506cc"
+    },
+    "payload" : {
+      "settings" : [ {
+        "key" : "locale",
+        "value" : "en-US"
+      } ]
+    }
+  }
+}
+13:55:48.149 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:55:48.695 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:55:48.696 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e54c-277a59f7c21abbef-dba33476-17
+
+
+13:55:48.698 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:55:48.703 [RequestThread] INFO  com.amazon.alexa.avs.http.CachingContentProvider - Create new CachingIterator
+13:55:49.146 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished listening to user speech
+13:55:49.150 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:55:49.177 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=2, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:55:49.180 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=2, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437349179, msgType=SendMsg, enddecode=}
+13:55:49.186 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=3, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:55:49.208 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=3, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437349201, msgType=SendMsg, enddecode=}
+13:55:51.253 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.MessageParser - Response metadata: 
+{
+  "directive" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "StopCapture",
+      "messageId" : "c0ffa39c-19a7-48eb-8aba-899e13f93da5"
+    },
+    "payload" : { }
+  }
+}
+13:55:51.367 [IndependentDirectiveThread] INFO  com.amazon.alexa.avs.AVSController - Handling directive: SpeechRecognizer.StopCapture
+13:55:52.177 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:55:52.178 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002b1e6-e9e99e8ee6eedaa2-59ab928d-6305
+
+
+13:55:52.178 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:55:52.179 [RequestThread] DEBUG com.amazon.alexa.avs.AVSController - Speech processing finished. Dependent queue size: 0
+13:55:52.179 [RequestThread] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished processing speech request
+13:55:52.184 [Thread-35] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Started resume audio thread
+13:55:52.193 [Thread-35] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Resuming all Alexa output
+13:55:52.194 [Thread-35] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Resuming all Alexa output
+13:55:52.581 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:55:52.582 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e57f-6717ca52021b64cd-4c238e76-7
+
+
+13:55:52.582 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:55:52.808 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Data of receive from : /127.0.0.1
+13:55:52.809 [Thread-1] INFO  com.amazon.alexa.avs.tts.TTSUdpServer - Received data for tts.{
+	"cmd":	"voice",
+	"type":	"tts",
+	"port":	0,
+	"is_interrupted":	0,
+	"data":	"你已经连网成功"
+}
+13:55:54.750 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,4 more tries...
+13:56:01.033 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:56:01.042 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=4, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:01.046 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=4, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437361045, msgType=SendMsg, enddecode=}
+13:56:01.048 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=5, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:01.049 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=5, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437361048, msgType=SendMsg, enddecode=}
+13:56:01.062 [AWT-EventQueue-0] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "Recognize",
+      "messageId" : "e3bdcb9f-88df-4e81-93ab-07debc62514d",
+      "dialogRequestId" : "f20fc361-636c-45ec-bc0d-dd709eb18073"
+    },
+    "payload" : {
+      "profile" : "NEAR_FIELD",
+      "format" : "AUDIO_L16_RATE_16000_CHANNELS_1"
+    }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:01.063 [AWT-EventQueue-0] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:01.066 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Speech request started
+13:56:01.066 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Interrupting all Alexa output
+13:56:01.068 [RequestThread] INFO  com.amazon.alexa.avs.http.CachingContentProvider - Create new CachingIterator
+13:56:03.194 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished listening to user speech
+13:56:03.195 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:56:03.211 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=6, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:03.212 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=6, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437363212, msgType=SendMsg, enddecode=}
+13:56:03.220 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=7, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:03.222 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=7, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437363222, msgType=SendMsg, enddecode=}
+13:56:04.441 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:04.442 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002be6d-16afb64d64633c3e-1d8cd037-119
+
+
+13:56:04.443 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:04.443 [RequestThread] DEBUG com.amazon.alexa.avs.AVSController - Speech processing finished. Dependent queue size: 0
+13:56:04.444 [RequestThread] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished processing speech request
+13:56:04.445 [Thread-39] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Started resume audio thread
+13:56:04.446 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.MessageParser - Response metadata: 
+{
+  "directive" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "StopCapture",
+      "messageId" : "82dd2365-fb1e-41fc-afce-6c0120dae299"
+    },
+    "payload" : { }
+  }
+}
+13:56:04.450 [IndependentDirectiveThread] INFO  com.amazon.alexa.avs.AVSController - Handling directive: SpeechRecognizer.StopCapture
+13:56:04.446 [Thread-39] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Resuming all Alexa output
+13:56:04.451 [Thread-39] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Resuming all Alexa output
+13:56:04.761 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,3 more tries...
+13:56:13.544 [SwingWorker-pool-10-thread-1] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "2111286d-3dce-4ce5-80a9-9a342a49f689"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:13.544 [SwingWorker-pool-10-thread-1] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:13.970 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:13.971 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e57f-6717ca52021b64cd-4c238e76-11
+
+
+13:56:13.971 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:14.397 [SwingWorker-pool-10-thread-2] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "452bb466-54dd-4dc1-9d35-b5149225650f"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:14.397 [SwingWorker-pool-10-thread-2] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:14.762 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,2 more tries...
+13:56:14.810 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:14.810 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e57f-6717ca52021b64cd-4c238e76-13
+
+
+13:56:14.811 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:15.278 [SwingWorker-pool-10-thread-3] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "e81bd5eb-075a-434a-9941-a5ec7dd63a45"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:15.279 [SwingWorker-pool-10-thread-3] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:15.755 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:15.756 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e57f-6717ca52021b64cd-4c238e76-15
+
+
+13:56:15.756 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:15.833 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:56:15.850 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=8, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:15.851 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=8, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437375851, msgType=SendMsg, enddecode=}
+13:56:15.856 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=9, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:15.857 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=9, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437375856, msgType=SendMsg, enddecode=}
+13:56:15.857 [AWT-EventQueue-0] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "Recognize",
+      "messageId" : "ddd23a74-d6bb-4276-a510-5bf1cee95e2b",
+      "dialogRequestId" : "ec479f69-029b-438f-a534-14e930991300"
+    },
+    "payload" : {
+      "profile" : "NEAR_FIELD",
+      "format" : "AUDIO_L16_RATE_16000_CHANNELS_1"
+    }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:15.858 [AWT-EventQueue-0] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:15.863 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Speech request started
+13:56:15.864 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Interrupting all Alexa output
+13:56:15.866 [RequestThread] INFO  com.amazon.alexa.avs.http.CachingContentProvider - Create new CachingIterator
+13:56:19.945 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished listening to user speech
+13:56:19.967 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:56:19.967 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=10, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:19.968 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=10, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437379967, msgType=SendMsg, enddecode=}
+13:56:19.977 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=11, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:19.978 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=11, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437379977, msgType=SendMsg, enddecode=}
+13:56:20.479 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.MessageParser - Response metadata: 
+{
+  "directive" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "StopCapture",
+      "messageId" : "b328e860-ddf8-45b4-9eb2-a6d0f57ebf9a"
+    },
+    "payload" : { }
+  }
+}
+13:56:20.479 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:20.480 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e5e4-3f5ef6de5deb1caf-111b1859-13
+
+
+13:56:20.480 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:20.481 [RequestThread] DEBUG com.amazon.alexa.avs.AVSController - Speech processing finished. Dependent queue size: 0
+13:56:20.481 [RequestThread] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished processing speech request
+13:56:20.482 [IndependentDirectiveThread] INFO  com.amazon.alexa.avs.AVSController - Handling directive: SpeechRecognizer.StopCapture
+13:56:20.487 [Thread-43] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Started resume audio thread
+13:56:20.491 [Thread-43] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Resuming all Alexa output
+13:56:20.492 [Thread-43] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Resuming all Alexa output
+13:56:24.772 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,1 more tries...
+13:56:27.373 [SwingWorker-pool-10-thread-4] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "4b7736f5-2ce4-4011-81b5-37a7ab98e07a"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:27.373 [SwingWorker-pool-10-thread-4] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:27.802 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:27.803 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e615-1ad8be6b7debc475-3422a9fe-9
+
+
+13:56:27.803 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:28.440 [SwingWorker-pool-10-thread-5] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "9c04b05f-5cbc-432b-89ae-ca5232524155"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:28.441 [SwingWorker-pool-10-thread-5] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:29.310 [SwingWorker-pool-10-thread-6] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "df87025e-c96b-4558-929a-b3f6e1b9295e"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:29.311 [SwingWorker-pool-10-thread-6] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:29.521 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:29.522 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e57f-6717ca52021b64cd-4c238e76-21
+
+
+13:56:29.522 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:29.727 [SwingWorker-pool-10-thread-7] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "22f6c46e-b59a-47ee-8164-b499d1d56c78"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:29.728 [SwingWorker-pool-10-thread-7] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:29.948 [SwingWorker-pool-10-thread-8] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "abab390e-4ed6-42c0-9095-931e44b961ef"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:29.949 [SwingWorker-pool-10-thread-8] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:29.966 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:29.967 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002c5c8-3e0a6b3d0dbae217-4d2785a8-5
+
+
+13:56:29.968 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:30.396 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:30.396 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e621-92ee6d6c7debd316-9f3bfa60-3
+
+
+13:56:30.397 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:30.827 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:30.828 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e60a-105deb35fdebc989-3139bde5-5
+
+
+13:56:30.829 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:31.267 [SwingWorker-pool-10-thread-9] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "cde97728-5a1d-4b83-a1da-70fc61222156"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:31.267 [SwingWorker-pool-10-thread-9] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:32.208 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:32.209 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002cda5-f7ec1dc09cb2337d-aef51725-29
+
+
+13:56:32.209 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:32.332 [SwingWorker-pool-10-thread-10] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "4095398e-6561-42cb-bbd1-73e56899b500"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:32.333 [SwingWorker-pool-10-thread-10] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:32.746 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:32.747 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e57f-6717ca52021b64cd-4c238e76-31
+
+
+13:56:32.748 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:33.693 [SwingWorker-pool-10-thread-1] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "3be717ee-fe04-4122-a4ac-a3766f42bed9"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:33.694 [SwingWorker-pool-10-thread-1] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:34.122 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:34.123 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002e57f-6717ca52021b64cd-4c238e76-33
+
+
+13:56:34.123 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:34.363 [SwingWorker-pool-10-thread-2] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "PlaybackController",
+      "name" : "PlayCommandIssued",
+      "messageId" : "d4bf58ed-6ad1-45de-8b89-4f37af1f1629"
+    },
+    "payload" : { }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:34.363 [SwingWorker-pool-10-thread-2] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:34.779 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,0 more tries...
+13:56:34.839 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:56:34.840 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-00028ee6-748d3b6faeec58ee-0ba992cd-5
+
+
+13:56:34.841 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:56:44.888 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,4 more tries...
+13:56:54.895 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,3 more tries...
+13:56:58.537 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_PAUSE_WAKE_WORD_ENGINE to all connected clients
+13:56:58.551 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=12, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:58.551 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=12, sourceDataString='{"type":"led","para":{"type":"button","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437418551, msgType=SendMsg, enddecode=}
+13:56:58.554 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=13, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:56:58.555 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=13, sourceDataString='{"type":"led","para":{"type":"mic","mode":"blink","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437418555, msgType=SendMsg, enddecode=}
+13:56:58.558 [AWT-EventQueue-0] INFO  com.amazon.alexa.avs.http.AVSClient - Request metadata: 
+{
+  "event" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "Recognize",
+      "messageId" : "6c44e5bc-caad-47c9-ba4a-1f1983090e5d",
+      "dialogRequestId" : "aeb8f05b-e75f-4139-8e25-e572430d4dc9"
+    },
+    "payload" : {
+      "profile" : "NEAR_FIELD",
+      "format" : "AUDIO_L16_RATE_16000_CHANNELS_1"
+    }
+  },
+  "context" : [ {
+    "header" : {
+      "namespace" : "AudioPlayer",
+      "name" : "PlaybackState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "IDLE"
+    }
+  }, {
+    "header" : {
+      "namespace" : "SpeechSynthesizer",
+      "name" : "SpeechState"
+    },
+    "payload" : {
+      "token" : "",
+      "offsetInMilliseconds" : 0,
+      "playerActivity" : "FINISHED"
+    }
+  }, {
+    "header" : {
+      "namespace" : "Alerts",
+      "name" : "AlertsState"
+    },
+    "payload" : {
+      "allAlerts" : [ ],
+      "activeAlerts" : [ ]
+    }
+  }, {
+    "header" : {
+      "namespace" : "Speaker",
+      "name" : "VolumeState"
+    },
+    "payload" : {
+      "volume" : 50,
+      "muted" : false
+    }
+  } ]
+}
+13:56:58.558 [AWT-EventQueue-0] INFO  com.amazon.alexa.avs.http.AVSClient - Request body: 
+13:56:58.563 [RequestThread] INFO  com.amazon.alexa.avs.http.CachingContentProvider - Create new CachingIterator
+13:56:58.566 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Speech request started
+13:56:58.566 [AWT-EventQueue-0] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Interrupting all Alexa output
+13:57:04.329 [DownchannelRequestThread] INFO  com.amazon.alexa.avs.http.MessageParser - Response metadata: 
+{
+  "directive" : {
+    "header" : {
+      "namespace" : "SpeechRecognizer",
+      "name" : "StopCapture",
+      "messageId" : "9d3cb514-30ca-46a9-a3d3-4585375aad09"
+    },
+    "payload" : { }
+  }
+}
+13:57:04.332 [IndependentDirectiveThread] INFO  com.amazon.alexa.avs.AVSController - Handling directive: SpeechRecognizer.StopCapture
+13:57:04.335 [IndependentDirectiveThread] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished listening to user speech
+13:57:04.344 [IndependentDirectiveThread] DEBUG com.amazon.alexa.avs.wakeword.WakeWordIPCSocket - Sending command IPC_RESUME_WAKE_WORD_ENGINE to all connected clients
+13:57:04.347 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=14, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:57:04.348 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=14, sourceDataString='{"type":"led","para":{"type":"button","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437424347, msgType=SendMsg, enddecode=}
+13:57:04.350 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.core.UdpClient - SendThread.run(), udp send msg=UdpMsg{sourceDataBytes=null, id=15, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=0, msgType=SendMsg, enddecode=}
+13:57:04.351 [Thread-33] DEBUG com.amazon.alexa.avs.robot.communicate.WlanDelegate - RobotUdpClientListener.onSend message: UdpMsg{sourceDataBytes=null, id=15, sourceDataString='{"type":"led","para":{"type":"mic","mode":"off","color":"green"},"version":0,"account":"127.0.0.1","cmd":"set"}', target=TargetInfo{ip='127.0.0.1', port='20001'}, time=1528437424351, msgType=SendMsg, enddecode=}
+13:57:04.896 [Thread-27] INFO  com.amazon.alexa.avs.realbutton.RealButtonUdpClient - Time out,2 more tries...
+13:57:05.528 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response code: 204
+13:57:05.529 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - Response headers: access-control-allow-origin: *
+x-amzn-requestid: 021ddcfffe21f428-00002b5d-0002b8ca-9a9b8e487f65fe24-fdcdf6df-27
+
+
+13:57:05.529 [RequestThread] INFO  com.amazon.alexa.avs.http.AVSClient - This response successfully had no content.
+13:57:05.529 [RequestThread] DEBUG com.amazon.alexa.avs.AVSController - Speech processing finished. Dependent queue size: 0
+13:57:05.530 [RequestThread] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Finished processing speech request
+13:57:05.531 [Thread-47] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Started resume audio thread
+13:57:05.531 [Thread-47] DEBUG com.amazon.alexa.avs.SpeechRequestAudioPlayerPauseController - Resuming all Alexa output
+13:57:05.532 [Thread-47] DEBUG com.amazon.alexa.avs.audio.AVSAudioPlayer - Resuming all Alexa output
+13:57:12.850 [Thread-13] INFO  com.amazon.alexa.avs.http.AVSClient - shutdown
+13:57:12.851 [Thread-13] INFO  com.amazon.alexa.avs.http.AVSClient - HttpClient stopping
+13:57:12.856 [Thread-13] INFO  com.amazon.alexa.avs.http.AVSClient - [java.lang.Thread.getStackTrace(Thread.java:1552), com.amazon.alexa.avs.http.AVSClient$1.lifeCycleStopping(AVSClient.java:196), org.eclipse.jetty.util.component.AbstractLifeCycle.setStopping(AbstractLifeCycle.java:197), org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:88), com.amazon.alexa.avs.http.AVSClient.shutdown(AVSClient.java:513), com.amazon.alexa.avs.AVSController$2.run(AVSController.java:218)]

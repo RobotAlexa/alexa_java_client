@@ -532,7 +532,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/amazon/alexa/avs/ui/graphical/GraphicalListenView.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazon/alexa/avs/ui/headless/HeadlessListenView.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazon/alexa/avs/config/DeviceConfigUtils.java" />
-        <option value="$PROJECT_DIR$/alexa_config.json" />
+        <option value="$PROJECT_DIR$/config.json" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazon/alexa/avs/config/DeviceConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazon/alexa/avs/ui/headless/HeadlessUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazon/alexa/avs/PollyDemo.java" />
@@ -1320,7 +1320,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alexa_config.json">
+    <entry file="file://$PROJECT_DIR$/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />

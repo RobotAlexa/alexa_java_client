@@ -5,13 +5,13 @@
 #-------------------------------------------------------
 
 # This is the name given to your device or mobile app in the Amazon developer portal. To look this up, navigate to https://developer.amazon.com/edw/home.html. It may be labeled Device Type ID.
-ProductID=YansheeC091
+ProductID=
 
 # Retrieve your client ID from the web settings tab within the developer console: https://developer.amazon.com/edw/home.html
-ClientID=amzn1.application-oa2-client.8d1b0cf3189a44308869ff0025292200
+ClientID=
 
 # Retrieve your client secret from the web settings tab within the developer console: https://developer.amazon.com/edw/home.html
-ClientSecret=f008abc3c4a4163132dbc6eb4369ba8da7b2076b0baa547484347f44810e0bfe
+ClientSecret=
 
 #-------------------------------------------------------
 # No need to change anything below this...
@@ -30,7 +30,7 @@ City='SEATTLE'
 # Your organization name/company name. Cannot be blank.
 Organization='AVS_USER'
 # Your device serial number. Cannot be blank, but can be any combination of characters.
-DeviceSerialNumber='b8:27:eb:1f:67:2c'
+DeviceSerialNumber=`ifconfig wlan0  | grep ether | awk '{print $2}'`
 # Your KeyStorePassword. We recommend leaving this blank for testing.
 KeyStorePassword=''
 
@@ -380,13 +380,13 @@ fi
 #--------------------------------------------------------------------------------------------
 
 if [ "$ProductID" = "YOUR_PRODUCT_ID_HERE" ]; then
-  ProductID=YansheeC091
+  ProductID=
 fi
 if [ "$ClientID" = "YOUR_CLIENT_ID_HERE" ]; then
-  ClientID=amzn1.application-oa2-client.8d1b0cf3189a44308869ff0025292200
+  ClientID=
 fi
 if [ "$ClientSecret" = "YOUR_CLIENT_SECRET_HERE" ]; then
-  ClientSecret=f008abc3c4a4163132dbc6eb4369ba8da7b2076b0baa547484347f44810e0bfe
+  ClientSecret=
 fi
 
 check_credentials

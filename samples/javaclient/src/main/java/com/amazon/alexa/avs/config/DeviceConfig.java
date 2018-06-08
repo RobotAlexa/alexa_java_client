@@ -38,7 +38,7 @@ import javax.json.JsonObjectBuilder;
  */
 public class DeviceConfig {
     private static final String DEFAULT_HOST = "https://avs-alexa-na.amazon.com";
-    public static final String FILE_NAME = "alexa_config.json";
+    public static final String FILE_NAME = "config.json";
     private static final List<Locale> SUPPORTED_LOCALES = new ArrayList<>();
     static {
         SUPPORTED_LOCALES.add(Locale.CANADA);

@@ -14,17 +14,17 @@
  * not need to modify those elements.
  */
 var config = {
-    clientId: "amzn1.application-oa2-client.8d1b0cf3189a44308869ff0025292200",
-    clientSecret: "f008abc3c4a4163132dbc6eb4369ba8da7b2076b0baa547484347f44810e0bfe",
+    clientId: "amzn1.application-oa2-client.0528caca2a594c93ade8194f0efedd99",
+    clientSecret: "deca95233ca9d9ca110e0fe38c914dcd403aefcc5a64e9fc484a409356feaf37",
     redirectUrl: 'https://localhost:3000/authresponse',
     lwaRedirectHost: "amazon.com",
     lwaApiHost: "api.amazon.com",
     validateCertChain: true,
-    sslKey: "/home/pi/avs/amazon_avs/samples/javaclient/certs/server/node.key",
-    sslCert: "/home/pi/avs/amazon_avs/samples/javaclient/certs/server/node.crt",
-    sslCaCert: "/home/pi/avs/amazon_avs/samples/javaclient/certs/ca/ca.crt",
+    sslKey: "/home/pi/Desktop/Alexa-java-client/samples/javaclient/certs/server/node.key",
+    sslCert: "/home/pi/Desktop/Alexa-java-client/samples/javaclient/certs/server/node.crt",
+    sslCaCert: "/home/pi/Desktop/Alexa-java-client/samples/javaclient/certs/ca/ca.crt",
     products: {
-        "YansheeC091": ["b8:27:eb:1f:67:2c"],
+        "Yanshee": ["b8:27:eb:9a:ee:76"],
     },
 };
 

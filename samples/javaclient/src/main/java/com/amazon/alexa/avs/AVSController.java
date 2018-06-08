@@ -12,11 +12,9 @@
  */
 package com.amazon.alexa.avs;
 
-import com.amazon.alexa.avs.audio.*;
-import com.amazon.alexa.avs.audio.AVSAudioPlayer.AlexaSpeechListener;
-import com.amazon.alexa.avs.alert.*;
+import com.amazon.alexa.avs.AVSAudioPlayer.AlexaSpeechListener;
+import com.amazon.alexa.avs.audio.SimpleAudioPlayer;
 import com.amazon.alexa.avs.auth.AccessTokenListener;
-import com.amazon.alexa.avs.bean.AVSAPIConstants;
 import com.amazon.alexa.avs.config.DeviceConfig;
 import com.amazon.alexa.avs.exception.DirectiveHandlingException;
 import com.amazon.alexa.avs.exception.DirectiveHandlingException.ExceptionType;
@@ -24,7 +22,6 @@ import com.amazon.alexa.avs.http.AVSClient;
 import com.amazon.alexa.avs.http.AVSClientFactory;
 import com.amazon.alexa.avs.http.LinearRetryPolicy;
 import com.amazon.alexa.avs.http.ParsingFailedHandler;
-import com.amazon.alexa.avs.listener.*;
 import com.amazon.alexa.avs.log.ConsoleLogger;
 import com.amazon.alexa.avs.message.request.RequestBody;
 import com.amazon.alexa.avs.message.request.RequestFactory;
@@ -135,8 +132,8 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     private ResultListener listener;
 
     public AVSController(AVSAudioPlayerFactory audioFactory, AlertManagerFactory alarmFactory,
-                         AVSClientFactory avsClientFactory, DialogRequestIdAuthority dialogRequestIdAuthority,
-                         WakeWordIPCFactory wakewordIPCFactory, DeviceConfig config) throws Exception {
+            AVSClientFactory avsClientFactory, DialogRequestIdAuthority dialogRequestIdAuthority,
+            WakeWordIPCFactory wakewordIPCFactory, DeviceConfig config) throws Exception {
 
         this.avsClientFactory = avsClientFactory;
         this.wakeWordAgentEnabled = config.getWakeWordAgentEnabled();
@@ -232,7 +229,7 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     }
 
     public void init(ListenHandler listenHandler, NotificationIndicator notificationIndicator,
-                     CardHandler cardHandler) {
+            CardHandler cardHandler) {
         // Initialize all GUI-related handlers
         this.stopCaptureHandler = listenHandler;
         this.expectSpeechListeners = new HashSet<>(
@@ -303,11 +300,6 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     @Override
     public void onAccessTokenReceived(String accessToken) {
         avsClient.setAccessToken(accessToken);
-//        if (!App.isBooted) {
-//            // play complete audio
-//            player.playMp3FromResource(BOOT_SOUND);
-//            App.isBooted = true;
-//        }
     }
 
     @Override
@@ -348,7 +340,6 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
             avsClient.sendEvent(body, inputStream, requestListener, AUDIO_TYPE);
 
             speechRequestAudioPlayerPauseController.startSpeechRequest();
-
         } catch (Exception e) {
             player.playMp3FromResource(ERROR_SOUND);
             requestListener.onRequestError(e);
@@ -832,4 +823,3 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
         this.audioFileCapture = audioFileCapture;
     }
 }
-

@@ -10,15 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  */
-package com.amazon.alexa.avs.util;
+package com.amazon.alexa.avs;
 
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-
-public class DateUtils {
-    public static final DateTimeFormatter AVS_ISO_OFFSET_DATE_TIME = new DateTimeFormatterBuilder()
-            .parseCaseInsensitive()
-            .append(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
-            .appendOffset("+HHmm", "+0000")
-            .toFormatter();
+public interface ExpectStopCaptureListener {
+    void onStopCaptureDirective();
 }

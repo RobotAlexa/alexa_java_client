@@ -13,7 +13,7 @@
 package com.amazon.alexa.avs.http;
 
 import com.amazon.alexa.avs.DirectiveEnqueuer;
-import com.amazon.alexa.avs.listener.ResultListener;
+import com.amazon.alexa.avs.ResultListener;
 import com.amazon.alexa.avs.config.DeviceConfig;
 
 import org.eclipse.jetty.util.ssl.SslContextFactory;

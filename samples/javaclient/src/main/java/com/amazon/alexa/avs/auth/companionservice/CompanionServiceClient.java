@@ -239,7 +239,6 @@ public class CompanionServiceClient {
 
                 if (response != null) {
                     String responsestring = IOUtils.toString(response);
-                    System.out.println("Error string: " + responsestring);
                     JsonReader reader = Json.createReader(
                             new ByteArrayInputStream(responsestring.getBytes(StandardCharsets.UTF_8)));
                     JsonObject error = reader.readObject();
@@ -252,7 +251,6 @@ public class CompanionServiceClient {
                     }
                 }
             }
-            System.out.println("Error string: " + e.getMessage());
             throw e;
         } finally {
             if (response != null) {

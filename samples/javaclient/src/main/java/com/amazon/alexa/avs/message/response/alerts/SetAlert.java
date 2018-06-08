@@ -12,7 +12,7 @@
  */
 package com.amazon.alexa.avs.message.response.alerts;
 
-import com.amazon.alexa.avs.util.DateUtils;
+import com.amazon.alexa.avs.DateUtils;
 import com.amazon.alexa.avs.message.Payload;
 
 import org.codehaus.jackson.annotate.JsonProperty;

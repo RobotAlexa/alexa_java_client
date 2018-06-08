@@ -13,8 +13,8 @@
 package com.amazon.alexa.avs.ui.headless;
 
 import com.amazon.alexa.avs.AVSController;
-import com.amazon.alexa.avs.listener.RecordingRMSListener;
-import com.amazon.alexa.avs.listener.RequestListener;
+import com.amazon.alexa.avs.RecordingRMSListener;
+import com.amazon.alexa.avs.RequestListener;
 import com.amazon.alexa.avs.realbutton.OnRealButtonClickListener;
 import com.amazon.alexa.avs.realbutton.RealButtonUdpClient;
 import com.amazon.alexa.avs.robot.communicate.WlanManager;

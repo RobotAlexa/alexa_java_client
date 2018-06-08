@@ -10,13 +10,12 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  */
-package com.amazon.alexa.avs.bean;
+package com.amazon.alexa.avs;
 
 import com.amazon.alexa.avs.http.AVSClient.Resource;
 import com.amazon.alexa.avs.http.MultipartParser;
 import com.amazon.alexa.avs.http.RetryPolicy;
 
-import com.amazon.alexa.avs.listener.RequestListener;
 import org.eclipse.jetty.client.api.ContentProvider;
 
 import java.util.Optional;

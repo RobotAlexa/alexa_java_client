@@ -15,8 +15,6 @@ import com.amazon.alexa.avs.auth.AccessTokenListener;
 import com.amazon.alexa.avs.auth.AuthSetup;
 import com.amazon.alexa.avs.auth.companionservice.RegCodeDisplayHandler;
 import com.amazon.alexa.avs.config.DeviceConfig;
-import com.amazon.alexa.avs.realbutton.OnRealButtonClickListener;
-import com.amazon.alexa.avs.realbutton.RealButtonUdpClient;
 import com.amazon.alexa.avs.ui.BaseUI;
 
 public class HeadlessUI extends BaseUI implements AccessTokenListener {
@@ -32,7 +30,7 @@ public class HeadlessUI extends BaseUI implements AccessTokenListener {
             throws Exception {
         super(controller, authSetup, config);
         userInputParser = Executors.newFixedThreadPool(1);
-        helpTextPrinted = true; // true: 屏蔽帮助文件打印
+        helpTextPrinted = false;
     }
 
     private void init() {
@@ -66,7 +64,7 @@ public class HeadlessUI extends BaseUI implements AccessTokenListener {
     @Override
     protected void initialize(DeviceConfig config) {
         Executor userEventExecutor = Executors.newFixedThreadPool(1);
-        userEventExecutor.execute(this::readUserInput);
+        userEventExecutor.execute(() -> readUserInput());
     }
 
     private void readUserInput() {
@@ -104,15 +102,14 @@ public class HeadlessUI extends BaseUI implements AccessTokenListener {
             parseThread.cancel(true);
         }
         parseThread = userInputParser.submit(() -> {
-            // 屏蔽用户输入，注释以下代码
-//            try {
-//                parseUserInput();
-//            } catch (InterruptedException e) {
-//                return;
-//            } catch (Exception e) {
-//                System.out.println("Error: " + e.getMessage());
-//                System.exit(1);
-//            }
+            try {
+                parseUserInput();
+            } catch (InterruptedException e) {
+                return;
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+                System.exit(1);
+            }
         });
 
     }
@@ -130,7 +127,7 @@ public class HeadlessUI extends BaseUI implements AccessTokenListener {
         System.out.println("Next song: n/next");
         System.out.println("Play/Pause: p/play/pause");
         System.out.println("Previous song: b/back");
-        System.out.println("Switch locale: en-US/en-GB/de-DE/en-IN/ja-JP/en-CA");
+        System.out.println("Switch locale: en-US/en-GB/de-DE/en-IN/ja-JP/en-CA/en-AU");
         System.out.println("Quit: q/quit/exit");
         System.out.println("Display this help text again: h/help");
         System.out.println();
@@ -167,6 +164,7 @@ public class HeadlessUI extends BaseUI implements AccessTokenListener {
             case "en-IN":
             case "ja-JP":
             case "en-CA":
+            case "en-AU":
                 System.out.println("Switching locale to: " + input);
                 localeView.handleLocaleChange(Locale.forLanguageTag(input));
                 break;

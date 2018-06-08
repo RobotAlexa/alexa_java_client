@@ -1,19 +1,18 @@
-/**
+/** 
  * Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * <p>
- * Licensed under the Amazon Software License (the "License"). You may not use this file
+ *
+ * Licensed under the Amazon Software License (the "License"). You may not use this file 
  * except in compliance with the License. A copy of the License is located at
- * <p>
- * http://aws.amazon.com/asl/
- * <p>
- * or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the
+ *
+ *   http://aws.amazon.com/asl/
+ *
+ * or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  */
-package com.amazon.alexa.avs.audio;
+package com.amazon.alexa.avs;
 
-import com.amazon.alexa.avs.AVSController;
-import com.amazon.alexa.avs.bean.SpeakItem;
+import com.amazon.alexa.avs.AudioPlayerStateMachine.AudioPlayerState;
 import com.amazon.alexa.avs.exception.DirectiveHandlingException;
 import com.amazon.alexa.avs.exception.DirectiveHandlingException.ExceptionType;
 import com.amazon.alexa.avs.message.request.RequestFactory;
@@ -27,24 +26,29 @@ import com.amazon.alexa.avs.message.response.audioplayer.Stream;
 import com.amazon.alexa.avs.message.response.speaker.SetMute;
 import com.amazon.alexa.avs.message.response.speaker.VolumePayload;
 import com.amazon.alexa.avs.message.response.speechsynthesizer.Speak;
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
-import javazoom.jl.player.Player;
+
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.caprica.vlcj.component.AudioMediaPlayerComponent;
-import uk.co.caprica.vlcj.player.MediaPlayer;
-import uk.co.caprica.vlcj.player.MediaPlayerEventAdapter;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+import java.util.UUID;
+
+import javazoom.jl.player.Player;
+import uk.co.caprica.vlcj.component.AudioMediaPlayerComponent;
+import uk.co.caprica.vlcj.player.MediaPlayer;
+import uk.co.caprica.vlcj.player.MediaPlayerEventAdapter;
 
 public class AVSAudioPlayer {
 
@@ -430,12 +434,12 @@ public class AVSAudioPlayer {
      * Returns true if Alexa is currently playing media
      */
     public boolean isPlayingOrPaused() {
-        return isPlaying() || audioPlayerStateMachine.getState() == AudioPlayerStateMachine.AudioPlayerState.PAUSED;
+        return isPlaying() || audioPlayerStateMachine.getState() == AudioPlayerState.PAUSED;
     }
 
     private boolean isPlaying() {
-        return (audioPlayerStateMachine.getState() == AudioPlayerStateMachine.AudioPlayerState.PLAYING
-                || audioPlayerStateMachine.getState() == AudioPlayerStateMachine.AudioPlayerState.BUFFER_UNDERRUN);
+        return (audioPlayerStateMachine.getState() == AudioPlayerState.PLAYING
+                || audioPlayerStateMachine.getState() == AudioPlayerState.BUFFER_UNDERRUN);
     }
 
     /**
@@ -762,7 +766,7 @@ public class AVSAudioPlayer {
      * Get the playback state of the media player
      */
     public PlaybackStatePayload getPlaybackState() {
-        AudioPlayerStateMachine.AudioPlayerState playerState = audioPlayerStateMachine.getState();
+        AudioPlayerState playerState = audioPlayerStateMachine.getState();
 
         long offset = getCurrentOffsetInMilliseconds();
 
@@ -778,7 +782,7 @@ public class AVSAudioPlayer {
     }
 
     public long getCurrentOffsetInMilliseconds() {
-        AudioPlayerStateMachine.AudioPlayerState playerActivity = audioPlayerStateMachine.getState();
+        AudioPlayerState playerActivity = audioPlayerStateMachine.getState();
 
         long offset;
         switch (playerActivity) {
@@ -963,7 +967,7 @@ public class AVSAudioPlayer {
         public void run() {
             playbackStateMachine.reportProgressDelay();
         }
-    }
+    };
 
     private static class ProgressReportIntervalEventRunnable implements Runnable {
 

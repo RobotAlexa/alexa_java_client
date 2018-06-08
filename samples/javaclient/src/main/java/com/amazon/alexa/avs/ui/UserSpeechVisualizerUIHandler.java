@@ -12,7 +12,7 @@
  */
 package com.amazon.alexa.avs.ui;
 
-import com.amazon.alexa.avs.listener.RecordingRMSListener;
+import com.amazon.alexa.avs.RecordingRMSListener;
 
 /**
  * Visualizer for user speech events.

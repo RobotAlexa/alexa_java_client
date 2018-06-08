@@ -10,7 +10,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  */
-package com.amazon.alexa.avs.audio;
+package com.amazon.alexa.avs;
 
 import com.amazon.alexa.avs.message.response.ProgressReport;
 import org.slf4j.Logger;

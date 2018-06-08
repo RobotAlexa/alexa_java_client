@@ -10,16 +10,12 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  */
-package com.amazon.alexa.avs.alert;
+package com.amazon.alexa.avs;
 
-public interface AlertEventListener {
+public interface AlertHandler {
 
-    void onAlertStarted(String alertToken);
+    void startAlert(String alertToken);
 
-    void onAlertStopped(String alertToken);
-
-    void onAlertSet(String alertToken, boolean success);
-
-    void onAlertDelete(String alertToken, boolean success);
+    void stopAlert(String alertToken);
 
 }

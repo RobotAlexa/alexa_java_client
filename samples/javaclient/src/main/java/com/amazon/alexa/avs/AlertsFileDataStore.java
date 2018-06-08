@@ -10,9 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  */
-package com.amazon.alexa.avs.alert;
+package com.amazon.alexa.avs;
 
-import com.amazon.alexa.avs.FileDataStore;
 import com.amazon.alexa.avs.config.ObjectMapperFactory;
 
 import org.codehaus.jackson.map.ObjectReader;

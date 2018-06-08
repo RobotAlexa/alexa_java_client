@@ -13,7 +13,6 @@
 package com.amazon.alexa.avs.http;
 
 import com.amazon.alexa.avs.http.jetty.PingSendingHttpClientTransportOverHTTP2.ConnectionListener;
-import com.amazon.alexa.avs.log.ConsoleLogger;
 import com.amazon.alexa.avs.message.response.Directive;
 import com.amazon.alexa.avs.message.response.ResponseBody;
 
@@ -81,7 +80,7 @@ public class MultipartParser extends MessageParser implements ConnectionListener
         headers = getPartHeaders();
         byte[] partBytes = getPartBytes();
         boolean isMetadata = isPartJSON(headers);
-        ConsoleLogger.print(MultipartParser.class.getName(), "handlePart : " + headers);
+
         if (isMetadata) {
             handleMetadata(partBytes);
         } else {

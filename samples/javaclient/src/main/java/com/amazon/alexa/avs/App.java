@@ -67,18 +67,18 @@ public class App {
 
     public App(DeviceConfig config) throws Exception {
         // Start tts server
-        AWSPollyTTS awsPollyTTS = new AWSPollyTTS();
-        TTSUdpServer ttsUdpServer = TTSUdpServer.getInstance();
-        ttsUdpServer.setOnUdpReceivedListener((socket, packet, jsonText) -> {
-            // receive tts text
-            try {
-                TTSBean tts = GsonUtil.get().toObject(jsonText, TTSBean.class);
-                awsPollyTTS.synthesize(tts.text);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-        ttsUdpServer.startListen();
+//        AWSPollyTTS awsPollyTTS = new AWSPollyTTS();
+//        TTSUdpServer ttsUdpServer = TTSUdpServer.getInstance();
+//        ttsUdpServer.setOnUdpReceivedListener((socket, packet, jsonText) -> {
+//            // receive tts text
+//            try {
+//                TTSBean tts = GsonUtil.get().toObject(jsonText, TTSBean.class);
+//                awsPollyTTS.synthesize(tts.text);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        });
+//        ttsUdpServer.startListen();
 
         authSetup = new AuthSetup(config);
         controller =

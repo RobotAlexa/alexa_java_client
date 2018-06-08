@@ -468,9 +468,10 @@ echo " Making sure we are installing to the right OS"
 echo "==============================================="
 echo ""
 echo ""
+
 echo "=========== Installing Oracle Java8 ==========="
 echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-chmod +x $Java_Client_Loc/install-java8.sh
+sudo chmod +x $Java_Client_Loc/install-java8.sh
 cd $Java_Client_Loc && bash ./install-java8.sh
 cd $Origin
 
@@ -489,6 +490,17 @@ echo ""
 echo "========== Update Aptitude ==========="
 sudo apt-get update
 sudo apt-get upgrade -yq
+
+echo "========== Installing NodeJS =========="
+sudo apt-get install -y nodejs npm build-essential
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+node -v
+sudo ldconfig
+
+echo "========== Installing Maven =========="
+sudo apt-get install -y maven
+mvn -version
+sudo ldconfig
 
 echo "========== Installing Git ============"
 sudo apt-get install -y git
@@ -513,13 +525,14 @@ sudo apt-get -y install wiringpi
 sudo ldconfig
 
 echo "========== Installing VLC and associated Environmental Variables =========="
-sudo apt-get install -y vlc vlc-nox vlc-data libvlc-dev
+sudo apt-get install -y libvlc-dev
+sudo apt-get install -y vlc vlc-nox vlc-data
 #Make sure that the libraries can be found
 sudo sh -c "echo \"/usr/lib/vlc\" >> /etc/ld.so.conf.d/vlc_lib.conf"
 sudo sh -c "echo \"VLC_PLUGIN_PATH=\"/usr/lib/vlc/plugin\"\" >> /etc/environment"
 
 # Create a libvlc soft link if doesn't exist
-if ! ldconfig -p | grep "libvlc.so "; then
+if ! ldconfig -p | grep "libvlc.so"; then
   [ -e $Java_Client_Loc/lib ] || mkdir $Java_Client_Loc/lib
   if ! [ -e $Java_Client_Loc/lib/libvlc.so ]; then
    Target_Lib=`ldconfig -p | grep libvlc.so | sort | tail -n 1 | rev | cut -d " " -f 1 | rev`
@@ -527,17 +540,6 @@ if ! ldconfig -p | grep "libvlc.so "; then
   fi 
 fi
 
-sudo ldconfig
-
-echo "========== Installing NodeJS =========="
-sudo apt-get install -y nodejs npm build-essential
-sudo ln -s /usr/bin/nodejs /usr/bin/node
-node -v
-sudo ldconfig
-
-echo "========== Installing Maven =========="
-sudo apt-get install -y maven
-mvn -version
 sudo ldconfig
 
 echo "========== Installing OpenSSL and Generating Self-Signed Certificates =========="
@@ -640,8 +642,9 @@ if [ "$Wake_Word_Detection_Enabled" = "true" ]; then
   cd $Wake_Word_Agent_Loc/tst && cmake . && make -j4
 fi
 
-chown -R $User:$Group $Origin
-chown -R $User:$Group /home/$User/.asoundrc
+echo "User: $User, Group: $Group, Origin: $Origin"
+sudo chown -R $User:$Group $Origin
+sudo chown -R $User:$Group /home/$User/.asoundrc
 
 cd $Origin
 

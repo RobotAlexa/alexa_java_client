@@ -513,7 +513,7 @@ sudo apt-get -y install wiringpi
 sudo ldconfig
 
 echo "========== Installing VLC and associated Environmental Variables =========="
-sudo apt-get install -y vlc vlc-nox vlc-data
+sudo apt-get install -y vlc vlc-nox vlc-data libvlc-dev
 #Make sure that the libraries can be found
 sudo sh -c "echo \"/usr/lib/vlc\" >> /etc/ld.so.conf.d/vlc_lib.conf"
 sudo sh -c "echo \"VLC_PLUGIN_PATH=\"/usr/lib/vlc/plugin\"\" >> /etc/environment"

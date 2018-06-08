@@ -1,2 +1,6 @@
 .DS_Store
 samples/javaclient/target/
+samples/javaclient/.idea/
+samples/javaclient/.gradle/
+samples/javaclient/out/
+samples/javaclient/target/

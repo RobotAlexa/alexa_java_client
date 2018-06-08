@@ -12,28 +12,14 @@
  */
 package com.amazon.alexa.avs;
 
-import com.amazon.alexa.avs.alert.AlertManagerFactory;
-import com.amazon.alexa.avs.audio.AVSAudioPlayerFactory;
 import com.amazon.alexa.avs.auth.AuthSetup;
 import com.amazon.alexa.avs.config.DeviceConfig;
 import com.amazon.alexa.avs.config.DeviceConfigUtils;
 import com.amazon.alexa.avs.http.AVSClientFactory;
-import com.amazon.alexa.avs.robot.communicate.constants.PROCOTOL_CMDS;
-import com.amazon.alexa.avs.robot.communicate.constants.VOICE_STATUS;
-import com.amazon.alexa.avs.robot.communicate.constants.VOICE_TYPE;
-import com.amazon.alexa.avs.tts.AWSPollyTTS;
-import com.amazon.alexa.avs.tts.TTSBean;
-import com.amazon.alexa.avs.tts.TTSBeanACK;
-import com.amazon.alexa.avs.tts.TTSUdpServer;
-import com.amazon.alexa.avs.ui.BaseUI;
 import com.amazon.alexa.avs.ui.graphical.GraphicalUI;
 import com.amazon.alexa.avs.ui.headless.HeadlessUI;
-import com.amazon.alexa.avs.util.GsonUtil;
+import com.amazon.alexa.avs.ui.BaseUI;
 import com.amazon.alexa.avs.wakeword.WakeWordIPCFactory;
-import javazoom.jl.decoder.JavaLayerException;
-
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 
 public class App {
 
@@ -87,7 +73,6 @@ public class App {
                         new WakeWordIPCFactory(), config);
 
         if (config.getUiEnabled()) {
-            // 不使用以下代码，不使用GUI或命令行。
             if (config.getHeadlessModeEnabled()) {
                 // 非GUI界面模式，需要在config.json中配置
                 appUI = new HeadlessUI(controller, authSetup, config);

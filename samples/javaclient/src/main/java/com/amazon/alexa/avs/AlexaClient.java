@@ -3,7 +3,6 @@ package com.amazon.alexa.avs;
 import com.amazon.alexa.avs.auth.AuthSetup;
 import com.amazon.alexa.avs.auth.companionservice.RegCodeDisplayHandler;
 import com.amazon.alexa.avs.config.DeviceConfig;
-import com.amazon.alexa.avs.listener.RequestListener;
 import com.amazon.alexa.avs.realbutton.OnRealButtonClickListener;
 import com.amazon.alexa.avs.realbutton.RealButtonUdpClient;
 import com.amazon.alexa.avs.robot.communicate.WlanManager;

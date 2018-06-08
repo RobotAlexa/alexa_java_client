@@ -10,20 +10,18 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package com.amazon.alexa.avs.audio;
+package com.amazon.alexa.avs;
 
-import com.amazon.alexa.avs.MicrophoneLineFactory;
-import com.amazon.alexa.avs.listener.RecordingRMSListener;
-import com.amazon.alexa.avs.listener.RecordingStateListener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PipedInputStream;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.TargetDataLine;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PipedInputStream;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AudioCapture {
     private static AudioCapture sAudioCapture;
@@ -76,6 +74,7 @@ public class AudioCapture {
     public void stopCapture() {
         microphoneLine.stop();
         microphoneLine.close();
+
     }
 
     private void startCapture() throws LineUnavailableException {

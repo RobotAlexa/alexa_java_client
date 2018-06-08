@@ -64,8 +64,7 @@ public class CompanionServiceAuthManager {
 
     private void startNewProvisioningRequest() {
         CompanionServiceRegCodeResponse response = requestRegistrationCode();
-//        requestAccessToken(response.getSessionId());
-		requestAccessToken(response.getSessionId());
+        requestAccessToken(response.getSessionId());
     }
 
     public CompanionServiceRegCodeResponse requestRegistrationCode() {
@@ -79,9 +78,6 @@ public class CompanionServiceAuthManager {
                 if (regCodeDisplayHandler != null) {
                     regCodeDisplayHandler.displayRegCode(regCode);
                 }
-                //RegCodeDisplayHandler.UdpServer udpServer = new RegCodeDisplayHandler.UdpServer();
-                //udpServer.setOnUdpReceivedListener(packet -> requestAccessToken(regCodeResponse.getSessionId()));
-                //udpServer.listen();
                 return regCodeResponse;
             } catch (IOException e) {
                 try {

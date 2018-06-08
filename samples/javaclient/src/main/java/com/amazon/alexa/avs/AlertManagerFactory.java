@@ -10,11 +10,14 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  */
-package com.amazon.alexa.avs.audio;
+package com.amazon.alexa.avs;
 
-public class AudioPlayerEventPayload {
+import java.util.List;
 
-    AudioPlayerEventPayload(String streamId, String activity, String errorType,
-            String errorMessage) {
+public class AlertManagerFactory {
+
+    public AlertManager getAlertManager(AlertEventListener listener, AlertHandler handler,
+            DataStore<List<Alert>> dataStore) {
+        return new AlertManager(listener, handler, dataStore);
     }
 }

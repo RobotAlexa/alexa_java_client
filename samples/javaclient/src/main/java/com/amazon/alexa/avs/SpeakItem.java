@@ -10,8 +10,24 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  */
-package com.amazon.alexa.avs.listener;
+package com.amazon.alexa.avs;
 
-public interface RecordingRMSListener {
-    void rmsChanged(int rms);
+import java.io.InputStream;
+
+public class SpeakItem {
+    private final String token;
+    private final InputStream audio;
+
+    public SpeakItem(String token, InputStream audio) {
+        this.token = token;
+        this.audio = audio;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public InputStream getAudio() {
+        return audio;
+    }
 }

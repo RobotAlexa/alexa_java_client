@@ -25,6 +25,7 @@ import com.amazon.alexa.avs.http.MultipartParser.MultipartParserConsumer;
 import com.amazon.alexa.avs.http.jetty.InputStreamResponseListener;
 import com.amazon.alexa.avs.http.jetty.PingSendingHttpClientTransportOverHTTP2;
 import com.amazon.alexa.avs.http.jetty.PingSendingHttpClientTransportOverHTTP2.ConnectionListener;
+import com.amazon.alexa.avs.log.ConsoleLogger;
 import com.amazon.alexa.avs.message.Message;
 import com.amazon.alexa.avs.message.request.RequestBody;
 import com.amazon.alexa.avs.message.response.AlexaExceptionResponse;
@@ -307,19 +308,23 @@ public class AVSClient implements ConnectionListener {
         int statusCode = response.getStatus();
         log.info("Response code: {}", statusCode);
         log.info("Response headers: {}", response.getHeaders());
+	    ConsoleLogger.print(this.getClass().getSimpleName(), "Response code: " + statusCode);
 
         // If 200 or 204, trigger the result listener
         if (statusCode == HttpStatus.OK_200) {
-            requestListener.ifPresent(l -> l.onRequestSuccess());
+            requestListener.ifPresent(RequestListener::onRequestSuccess);
         }
 
         if (statusCode == HttpStatus.NO_CONTENT_204) {
-            requestListener.ifPresent(l -> l.onRequestSuccess());
+            requestListener.ifPresent(RequestListener::onRequestSuccess);
             log.info("This response successfully had no content.");
             return;
         }
 
         String contentType = response.getHeaders().get(HttpHeader.CONTENT_TYPE);
+
+	    ConsoleLogger.print(this.getClass().getName(), "Response code: " + statusCode);
+
         Optional<String> boundary =
                 getHeaderParameter(contentType, HttpHeaders.Parameters.BOUNDARY);
 

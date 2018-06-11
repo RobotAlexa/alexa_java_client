@@ -34,6 +34,7 @@ import com.amazon.alexa.avs.robot.communicate.WlanManager;
 import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
 import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
 import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
+import com.amazon.alexa.avs.util.GsonUtil;
 import org.apache.commons.fileupload.MultipartStream;
 import org.apache.commons.fileupload.MultipartStream.MalformedStreamException;
 import org.apache.commons.io.IOUtils;
@@ -57,9 +58,7 @@ import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -303,12 +302,12 @@ public class AVSClient implements ConnectionListener {
 //            throw new RequestException(e);
             return;
         }
+        ConsoleLogger.print(this.getClass().getSimpleName(), "Response " + GsonUtil.get().toJson(response));
         if (response == null) return;
 
         int statusCode = response.getStatus();
         log.info("Response code: {}", statusCode);
         log.info("Response headers: {}", response.getHeaders());
-	    ConsoleLogger.print(this.getClass().getSimpleName(), "Response code: " + statusCode);
 
         // If 200 or 204, trigger the result listener
         if (statusCode == HttpStatus.OK_200) {
@@ -322,8 +321,7 @@ public class AVSClient implements ConnectionListener {
         }
 
         String contentType = response.getHeaders().get(HttpHeader.CONTENT_TYPE);
-
-	    ConsoleLogger.print(this.getClass().getName(), "Response code: " + statusCode);
+	    ConsoleLogger.print(this.getClass().getName(), "contentType: " + contentType);
 
         Optional<String> boundary =
                 getHeaderParameter(contentType, HttpHeaders.Parameters.BOUNDARY);

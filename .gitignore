@@ -1,4 +1,6 @@
 .DS_Store
+alexa-rpi/
+snowboy/
 samples/javaclient/target/
 samples/javaclient/.idea/
 samples/javaclient/.gradle/

@@ -493,6 +493,39 @@ echo "========== Update Aptitude ==========="
 sudo apt-get update
 sudo apt-get upgrade -yq
 
+# Install Yanshee-Raspi-SDK
+echo ""
+echo "==========================="
+echo "====Install Yanshee SDK===="
+echo "==========================="
+echo ""
+if [ ! -d "Yanshee-Raspi-SDK" ];then
+	
+    sudo apt-get -y install doxygen swig
+    git clone https://github.com/UBTEDU/Yanshee-Raspi-SDK.git
+    cd Yanshee-Raspi-SDK
+    YANSHEE_SDK_ENV=`cat ~/.bashrc | grep YANSHEE_SDK`
+	
+    #env
+    if [ -d $YANSHEE_SDK_ENV ];then
+        echo "" >> ~/.bashrc
+        echo "export YANSHEE_SDK=`pwd`" >> ~/.bashrc
+        source ~/.bashrc
+        echo "" >> ~/.bashrc
+        echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$YANSHEE_SDK/output/libs/" >> ~/.bashrc
+        source ~/.bashrc
+    fi
+
+    make
+    cd $YANSHEE_SDK/output/python
+    sudo python setup.py install
+fi
+echo ""
+echo "==========================="
+echo "=======SDK Installed======="
+echo "==========================="
+echo ""
+
 echo "========== Installing NodeJS =========="
 sudo apt-get install -y nodejs npm build-essential
 sudo ln -s /usr/bin/nodejs /usr/bin/node

@@ -20,10 +20,12 @@ def disconnect(ip):
 
 
 def do_action(ac_name, repeat):
+    ac_name = str(ac_name)
     return RobotApi.ubtStartRobotAction(ac_name, repeat)
 
 
 def do_dance(ac_name="", repeat=1):
+    ac_name = str(ac_name)
     if ac_name == "":
         ac_name = dance_list[random.randint(0, len(dance_list) - 1)]
 
@@ -35,6 +37,7 @@ def do_dance(ac_name="", repeat=1):
 
 
 def do_moving(ac_name, repeat=1):
+    ac_name = str(ac_name)
     if ac_name in move_list:
         return RobotApi.ubtStartRobotAction(ac_name, repeat)
     else:

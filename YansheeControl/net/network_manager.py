@@ -22,7 +22,7 @@ def start():
     server.listen(5)
     need_exit = False
     while True:
-        print ("start listen ......")
+        print ("Yanshee control server start.")
         conn, addr = server.accept()
         try:
             while 1:
@@ -106,6 +106,3 @@ def cmd_parser(request):
         elif cmd_stop in request:
             controller.do_stop()
 
-
-if __name__ == "__main__":
-    start()

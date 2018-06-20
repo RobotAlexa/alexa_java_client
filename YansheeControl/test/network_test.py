@@ -4,7 +4,7 @@ import socket
 import json
 
 move = {}
-move["cmd"] = "stop"
+move["cmd"] = "action"
 
 action = {}
 action["name"] = "Forward"

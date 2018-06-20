@@ -56,11 +56,10 @@ def do_volume_up():
     if ret != 0:
         print ("Can't get volume.")
         return ret
-    print "volume: %s"%status_info.iValue
+    print "volume: %s" % status_info.iValue
     value = status_info.iValue + max_volume / 5
     if value > max_volume:
         value = max_volume
-    print "value: %s"%value
     return RobotApi.ubtSetRobotVolume(value)
 
 
@@ -71,12 +70,11 @@ def do_volume_down():
     if ret != 0:
         print ("Can't get volume.")
         return ret
-    print "volume: %s"%status_info.iValue
+    print "volume: %s" % status_info.iValue
 
     value = status_info.iValue - max_volume / 5
     if value < 0:
         value = 0
-    print "value: %s"%value
     return RobotApi.ubtSetRobotVolume(value)
 
 
@@ -98,5 +96,3 @@ def do_gesture_analyze():
 def do_object_analyze():
     # TODO
     pass
-
-

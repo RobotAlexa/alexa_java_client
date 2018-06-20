@@ -3,11 +3,16 @@ import socket
 import json
 from core import controller
 from json_type import *
+from multiprocessing import Process, Queue
 
 ip = '127.0.0.1'
 ip_port = (ip, 29599)
 server = socket.socket()
 server.bind(ip_port)
+
+
+def resolve_cmd(request):
+    cmd_parser(request)
 
 
 def is_json(json_str):
@@ -37,7 +42,8 @@ def start():
                 if cmd_cmd in request and request[cmd_cmd].strip() == cmd_exit:
                     break
                 else:
-                    cmd_parser(request)
+                    p = Process(target=resolve_cmd, args=(request,))
+                    p.start()
             conn.close()
 
         except Exception, e:

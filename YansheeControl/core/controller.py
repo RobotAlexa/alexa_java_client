@@ -51,7 +51,7 @@ def do_stop():
 
 def do_volume_up():
     status_type = RobotApi.UBTEDU_ROBOT_STATUS_TYPE_VOLUME
-    status_info = RobotApi.UBTEDU_ROBOTINFRARED_SENSOR_T
+    status_info = RobotApi.UBTEDU_ROBOTINFRARED_SENSOR_T()
     ret = RobotApi.ubtGetRobotStatus(status_type, status_info)
     if ret != 0:
         print ("Can't get volume.")
@@ -65,7 +65,7 @@ def do_volume_up():
 
 def do_volume_down():
     status_type = RobotApi.UBTEDU_ROBOT_STATUS_TYPE_VOLUME
-    status_info = RobotApi.UBTEDU_ROBOTINFRARED_SENSOR_T
+    status_info = RobotApi.UBTEDU_ROBOTINFRARED_SENSOR_T()
     ret = RobotApi.ubtGetRobotStatus(status_type, status_info)
     if ret != 0:
         print ("Can't get volume.")

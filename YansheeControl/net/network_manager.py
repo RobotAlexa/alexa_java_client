@@ -19,6 +19,9 @@ def is_json(json_str):
 
 
 def start():
+    # connect SDK
+    controller.connect(ip)
+
     server.listen(5)
     need_exit = False
     while True:
@@ -42,6 +45,9 @@ def start():
         if need_exit:
             break
     print ("Socket close.")
+
+    # disconnect SDK
+    controller.disconnect(ip)
 
 
 def cmd_parser(request):

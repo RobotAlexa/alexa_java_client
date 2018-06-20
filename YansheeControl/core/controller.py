@@ -6,7 +6,7 @@ import random
 dance_list = ["Waka_waka", "Happy_Birthday", "Sweet_and_sour", "we_are_taking_off"]
 move_list = ["Forward", "Backward", "Leftward", "Rightward"]
 
-max_volume = 0xff
+max_volume = 100
 
 
 def connect(ip):
@@ -56,10 +56,11 @@ def do_volume_up():
     if ret != 0:
         print ("Can't get volume.")
         return ret
-
+    print "volume: %s"%status_info.iValue
     value = status_info.iValue + max_volume / 5
     if value > max_volume:
         value = max_volume
+    print "value: %s"%value
     return RobotApi.ubtSetRobotVolume(value)
 
 
@@ -70,10 +71,12 @@ def do_volume_down():
     if ret != 0:
         print ("Can't get volume.")
         return ret
+    print "volume: %s"%status_info.iValue
 
     value = status_info.iValue - max_volume / 5
     if value < 0:
         value = 0
+    print "value: %s"%value
     return RobotApi.ubtSetRobotVolume(value)
 
 

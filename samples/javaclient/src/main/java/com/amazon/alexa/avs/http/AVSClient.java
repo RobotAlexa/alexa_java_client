@@ -302,7 +302,7 @@ public class AVSClient implements ConnectionListener {
 //            throw new RequestException(e);
             return;
         }
-        ConsoleLogger.print(this.getClass().getSimpleName(), "Response " + GsonUtil.get().toJson(response));
+        ConsoleLogger.print(this.getClass().getSimpleName(), "Response " + response);
         if (response == null) return;
 
         int statusCode = response.getStatus();

@@ -31,6 +31,7 @@ def start():
             while 1:
                 client_data = conn.recv(4096)
                 str_data = str(client_data)
+                print ("receive message: %s" % str_data)
                 if is_json(str_data):
                     request = json.loads(str_data)
 
@@ -40,6 +41,7 @@ def start():
                         cmd_parser(request)
 
         except Exception, e:
+            print ("Error: %s" % e)
             conn.close()
 
         if need_exit:
@@ -111,4 +113,3 @@ def cmd_parser(request):
 
         elif cmd_stop in request:
             controller.do_stop()
-

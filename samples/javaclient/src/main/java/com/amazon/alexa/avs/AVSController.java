@@ -42,10 +42,10 @@ import com.amazon.alexa.avs.message.response.templateruntime.CardHandler;
 import com.amazon.alexa.avs.message.response.templateruntime.RenderTemplate;
 import com.amazon.alexa.avs.robot.RobotControlDispatcher;
 import com.amazon.alexa.avs.robot.bean.SkillInformation;
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
+//import com.amazon.alexa.avs.robot.communicate.WlanManager;
+//import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
+//import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
+//import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
 import com.amazon.alexa.avs.wakeword.WakeWordDetectedHandler;
 import com.amazon.alexa.avs.wakeword.WakeWordIPC;
 import com.amazon.alexa.avs.wakeword.WakeWordIPC.IPCCommand;
@@ -343,8 +343,8 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
         } catch (Exception e) {
             player.playMp3FromResource(ERROR_SOUND);
             requestListener.onRequestError(e);
-            WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
-            WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
+//            WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
+//            WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
         }
     }
 
@@ -702,16 +702,16 @@ public class AVSController implements RecordingStateListener, AlertHandler, Aler
     @Override
     public void recordingStarted() {
         player.playMp3FromResource(START_SOUND);
-        WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.BLINK, LED_COLOR.GREEN);
-        WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.BLINK, LED_COLOR.GREEN);
+//        WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.BLINK, LED_COLOR.GREEN);
+//        WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.BLINK, LED_COLOR.GREEN);
     }
 
     // audio state callback for when recording has completed
     @Override
     public void recordingCompleted() {
         player.playMp3FromResource(END_SOUND);
-        WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
-        WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
+//        WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
+//        WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
     }
 
     public boolean isSpeaking() {

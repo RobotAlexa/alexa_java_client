@@ -30,11 +30,6 @@ import com.amazon.alexa.avs.message.Message;
 import com.amazon.alexa.avs.message.request.RequestBody;
 import com.amazon.alexa.avs.message.response.AlexaExceptionResponse;
 
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
-import com.amazon.alexa.avs.util.GsonUtil;
 import org.apache.commons.fileupload.MultipartStream;
 import org.apache.commons.fileupload.MultipartStream.MalformedStreamException;
 import org.apache.commons.io.IOUtils;
@@ -295,8 +290,6 @@ public class AVSClient implements ConnectionListener {
             }
             inputStream = responseListener.getInputStream();
         } catch (Exception e) {
-            WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
-            WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
             log.error("Error", e);
             IOUtils.closeQuietly(inputStream);
 //            throw new RequestException(e);

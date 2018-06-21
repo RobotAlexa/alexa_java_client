@@ -1,16 +1,12 @@
 package com.amazon.alexa.avs.realbutton;
 
 import com.amazon.alexa.avs.realbutton.bean.ClickMsg;
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetSocketAddress;
-import java.net.SocketException;
 
 public class RealButtonUdpClient {
     private static final Logger log = LoggerFactory.getLogger(RealButtonUdpClient.class);

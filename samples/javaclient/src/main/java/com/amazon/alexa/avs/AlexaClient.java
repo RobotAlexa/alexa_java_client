@@ -5,10 +5,10 @@ import com.amazon.alexa.avs.auth.companionservice.RegCodeDisplayHandler;
 import com.amazon.alexa.avs.config.DeviceConfig;
 import com.amazon.alexa.avs.realbutton.OnRealButtonClickListener;
 import com.amazon.alexa.avs.realbutton.RealButtonUdpClient;
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
-import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
+//import com.amazon.alexa.avs.robot.communicate.WlanManager;
+//import com.amazon.alexa.avs.robot.communicate.constants.LED_COLOR;
+//import com.amazon.alexa.avs.robot.communicate.constants.LED_MODE;
+//import com.amazon.alexa.avs.robot.communicate.constants.LED_TYPE;
 import com.amazon.alexa.avs.ui.*;
 import com.amazon.alexa.avs.ui.controllers.ListenViewController;
 import com.amazon.alexa.avs.ui.headless.*;
@@ -138,8 +138,8 @@ public class AlexaClient implements ListenUIHandler {
 
     @Override
     public void onProcessing() {
-        WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
-        WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
+//        WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
+//        WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
         listenViewController.onProcessing();
     }
 
@@ -186,8 +186,8 @@ public class AlexaClient implements ListenUIHandler {
 
         @Override
         public void onRequestError(Throwable e) {
-            WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
-            WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
+//            WlanManager.getInstance().setRobotLed(LED_TYPE.BUTTON, LED_MODE.OFF, LED_COLOR.GREEN);
+//            WlanManager.getInstance().setRobotLed(LED_TYPE.MIC, LED_MODE.OFF, LED_COLOR.GREEN);
             System.out.println("An error occurred: " + e.getMessage());
         }
     }

@@ -2,7 +2,6 @@ package com.amazon.alexa.avs.robot.handler;
 
 import com.amazon.alexa.avs.robot.bean.CardTitles;
 import com.amazon.alexa.avs.robot.bean.SkillInformation;
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +19,6 @@ public class SystemUpgradeHandler extends RobotControlHandler {
         if (skillInformation != null &&
                 skillInformation.mainTitle != null) {
             if (CardTitles.SYSTEM_UPGRADE_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().upgradeRobotSystem();
                 System.out.println("upgrade robot software...");
             }
         }

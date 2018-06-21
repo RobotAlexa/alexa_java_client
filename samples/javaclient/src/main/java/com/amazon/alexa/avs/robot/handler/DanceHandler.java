@@ -2,9 +2,8 @@ package com.amazon.alexa.avs.robot.handler;
 
 import com.amazon.alexa.avs.log.ConsoleLogger;
 import com.amazon.alexa.avs.robot.bean.CardTitles;
-import com.amazon.alexa.avs.robot.communicate.constants.PLAY_CONTROL_TYPES;
 import com.amazon.alexa.avs.robot.bean.SkillInformation;
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
+import com.amazon.alexa.avs.robot.communicate.MsgSendManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +36,7 @@ public class DanceHandler extends RobotControlHandler {
                 int index = (int) (Math.random() * BuiltInDances.length);
                 String dance = BuiltInDances[index];
                 mLastDanceName = dance;
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, dance, 1);
+                MsgSendManager.getInstance().startAction(dance, 1);
 
                 log.info("Dance name: {}.", dance);
                 ConsoleLogger.print("DanceHandler", "Start to dance. Dance name: " + dance);
@@ -45,7 +44,7 @@ public class DanceHandler extends RobotControlHandler {
             } else if (CardTitles.DANCE_STOP_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
                 log.info("Stop dancing...........................................................");
                 ConsoleLogger.print("DanceHandler", "Stop dancing....");
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.STOP, mLastDanceName, 1);
+                MsgSendManager.getInstance().stop();
             }
 
         }

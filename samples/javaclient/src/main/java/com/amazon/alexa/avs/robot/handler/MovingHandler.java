@@ -2,9 +2,8 @@ package com.amazon.alexa.avs.robot.handler;
 
 import com.amazon.alexa.avs.robot.bean.BuiltInActionNames;
 import com.amazon.alexa.avs.robot.bean.CardTitles;
-import com.amazon.alexa.avs.robot.communicate.constants.PLAY_CONTROL_TYPES;
 import com.amazon.alexa.avs.robot.bean.SkillInformation;
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
+import com.amazon.alexa.avs.robot.communicate.MsgSendManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,19 +25,19 @@ public class MovingHandler extends RobotControlHandler {
         if (skillInformation != null &&
                 skillInformation.mainTitle != null) {
             if (CardTitles.MOVING_FORWARD_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.FORWARD, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.FORWARD, 1);
 
             } else if (CardTitles.MOVING_BACKWARD_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.BACKWARD, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.BACKWARD, 1);
 
             } else if (CardTitles.MOVING_TURN_LEFT_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.TURN_LEFT, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.TURN_LEFT, 1);
 
             } else if (CardTitles.MOVING_TURN_RIGHT_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.TURN_RIGHT, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.TURN_RIGHT, 1);
 
             } else if (CardTitles.MOVING_STOP_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.RESET, BuiltInActionNames.STOP, 1);
+                MsgSendManager.getInstance().stop();
             }
         }
     }

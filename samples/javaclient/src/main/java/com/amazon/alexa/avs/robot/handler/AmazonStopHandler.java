@@ -1,10 +1,8 @@
 package com.amazon.alexa.avs.robot.handler;
 
-import com.amazon.alexa.avs.robot.bean.BuiltInActionNames;
 import com.amazon.alexa.avs.robot.bean.CardTitles;
-import com.amazon.alexa.avs.robot.communicate.constants.PLAY_CONTROL_TYPES;
 import com.amazon.alexa.avs.robot.bean.SkillInformation;
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
+import com.amazon.alexa.avs.robot.communicate.MsgSendManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,12 +21,7 @@ public class AmazonStopHandler extends RobotControlHandler {
         if (skillInformation != null &&
                 skillInformation.mainTitle != null) {
             if (CardTitles.AMAZON_STOP_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                // send reset action
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.RESET, BuiltInActionNames.STOP, 1);
-                if (FaceFunctionHandler.isTrackingFace) {
-                    // stop face tracking
-
-                }
+                MsgSendManager.getInstance().stop();
             }
         }
     }

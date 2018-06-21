@@ -39,7 +39,7 @@ def start():
             if is_json(str_data):
                 request = json.loads(str_data)
 
-                if cmd_cmd in request and request[cmd_cmd].strip() == cmd_exit:
+                if key_cmd in request and request[key_cmd].strip() == cmd_exit:
                     break
                 else:
                     p = Process(target=resolve_cmd, args=(request,))
@@ -79,37 +79,37 @@ def cmd_parser(request):
             }
         }
     '''
-    if cmd_cmd in request:
-        if request[cmd_cmd] == cmd_action and obj_action in request:
+    if key_cmd in request:
+        if request[key_cmd] == cmd_action and key_action in request:
             # action
-            action = request[obj_action]
+            action = request[key_action]
             repeat = 1
             if key_name in action:
                 if key_repeat in action:
                     repeat = action[key_repeat]
                 controller.do_action(action[key_name], repeat)
 
-        elif request[cmd_cmd] == cmd_dance and obj_dance in request:
+        elif request[key_cmd] == cmd_dance and key_dance in request:
             # dance
-            dance = request[obj_dance]
+            dance = request[key_dance]
             repeat = 1
             if key_name in dance:
                 if key_repeat in dance:
                     repeat = dance[key_repeat]
                 controller.do_dance(dance[key_name], repeat)
 
-        elif request[cmd_cmd] == cmd_moving and obj_moving in request:
+        elif request[key_cmd] == cmd_moving and key_moving in request:
             # moving
-            moving = request[obj_moving]
+            moving = request[key_moving]
             repeat = 1
             if key_name in moving:
                 if key_repeat in moving:
                     repeat = moving[key_repeat]
                 controller.do_moving(moving[key_name], repeat)
 
-        elif request[cmd_cmd] == cmd_volume and obj_volume in request:
+        elif request[key_cmd] == cmd_volume and key_volume in request:
             # set volume
-            volume = request[obj_volume]
+            volume = request[key_volume]
             if key_direction in volume:
                 direction = volume[key_direction]
                 if direction == direction_up:
@@ -117,5 +117,5 @@ def cmd_parser(request):
                 else:
                     controller.do_volume_down()
 
-        elif request[cmd_cmd] == cmd_stop:
+        elif request[key_cmd] == cmd_stop:
             controller.do_stop()

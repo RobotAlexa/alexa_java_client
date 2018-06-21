@@ -2,9 +2,8 @@ package com.amazon.alexa.avs.robot.handler;
 
 import com.amazon.alexa.avs.robot.bean.BuiltInActionNames;
 import com.amazon.alexa.avs.robot.bean.CardTitles;
-import com.amazon.alexa.avs.robot.communicate.constants.PLAY_CONTROL_TYPES;
 import com.amazon.alexa.avs.robot.bean.SkillInformation;
-import com.amazon.alexa.avs.robot.communicate.WlanManager;
+import com.amazon.alexa.avs.robot.communicate.MsgSendManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,37 +31,37 @@ public class ActionHandler extends RobotControlHandler {
         if (skillInformation != null &&
                 skillInformation.mainTitle != null) {
             if (CardTitles.ACTION_GO_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.GO, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.GO, 1);
 
             } else if (CardTitles.ACTION_GOOD_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.GOOD, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.GOOD, 1);
 
             } else if (CardTitles.ACTION_KICK_LEFT_FOOT_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.LEFT_KICK, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.LEFT_KICK, 1);
 
             } else if (CardTitles.ACTION_KICK_RIGHT_FOOT_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.RIGHT_KICK, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.RIGHT_KICK, 1);
 
             } else if (CardTitles.ACTION_LEFT_HIT_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.LEFT_HIT, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.LEFT_HIT, 1);
 
             } else if (CardTitles.ACTION_RIGHT_HIT_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.RIGHT_HIT, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.RIGHT_HIT, 1);
 
             } else if (CardTitles.ACTION_PUSH_UP_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.PUSH_UP, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.PUSH_UP, 1);
 
             } else if (CardTitles.ACTION_SHOOT_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.SHOOT, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.SHOOT, 1);
 
             } else if (CardTitles.ACTION_SHOOT_LEFT_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.SHOOT_LEFT, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.SHOOT_LEFT, 1);
 
             } else if (CardTitles.ACTION_SHOOT_RIGHT_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.START, BuiltInActionNames.SHOOT_RIGHT, 1);
+                MsgSendManager.getInstance().startAction(BuiltInActionNames.SHOOT_RIGHT, 1);
 
             } else if (CardTitles.ACTION_STOP_CARD.equalsIgnoreCase(skillInformation.mainTitle.trim())) {
-                WlanManager.getInstance().actionControl(PLAY_CONTROL_TYPES.RESET, BuiltInActionNames.STOP, 1);
+                MsgSendManager.getInstance().stop();
             }
         }
 

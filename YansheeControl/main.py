@@ -2,6 +2,7 @@
 
 from net import network_manager
 import signal
+import os
 
 
 def bye_bye(signum, frame):
@@ -10,6 +11,7 @@ def bye_bye(signum, frame):
 
 
 def main():
+    os.system("pid=`netstat -nlp | grep 29599 | awk '{print $7}' | awk -F\"/\" '{print $1}'`;if [ ! -d $pid ]; then echo $pid; kill -9 $pid; fi")
     network_manager.start()
 
 

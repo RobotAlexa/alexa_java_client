@@ -42,10 +42,11 @@ public class App {
             Runtime.getRuntime().exec("sudo service ubtedu stop");
 
             String serverPath = System.getenv("YANSHEE_CONTROL");
+            System.out.println("env: " + serverPath);
             if (!TextUtils.isEmpty(serverPath)) {
-            	String cmd = "netstat -nlp | grep " + SocketClient.PORT + " | awk '{print $7}' | awk -F\"/\" '{print $1}' | xargs kill -9 ";
-            	cmd += "&& cd $YANSHEE_CONTROL && python main.py";
+            	String[] cmd = { "/bin/bash", "-c", "cd $YANSHEE_CONTROL; bash run.sh" }; 
                 Runtime.getRuntime().exec(cmd);
+                System.out.println(cmd);
             }
 
         } catch (Exception e) {

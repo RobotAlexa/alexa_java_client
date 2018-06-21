@@ -2,8 +2,21 @@ Alexa demo for Yanshee robot
 
 See [alexa-avs-sample-app](https://github.com/alexa/alexa-avs-sample-app/wiki/Raspberry-Pi)
 
-1> build alexa java client and ZLK38AVS 
------------------------
+Content
+---------------
+* [build alexa java client and ZLK38AVS ](#build_client)  
+    * [Step 1 Stop the default voice recognition application](#step1)  
+    * [Step 2 Get alexa-avs-sample](#step2)  
+    * [Step 3 Get Microsemi ZL38050 driver](#step3)  
+    * [Step 4 Check if the audio can work](#step4)  
+* [control robot](#control_robot)  
+* [YansheeControl](#Control_Yanshee)  
+* [Support utterances](#Support_utterances)  
+
+<a name="build_client"></a>
+## 1> build alexa java client and ZLK38AVS 
+
+<a name="step1"></a>
 ### Step 1 Stop the default voice recognition application
 It is not a good choice to run more than one voice recognition application on one device, so please disable the default voice recognition before porting Alexa to Yanshee.
 * Update the config file.
@@ -32,6 +45,7 @@ Please execute the below command, the default voice recognition application shou
 sudo service ubtedu restart
 ```
 
+<a name="step2"></a>
 ### Step 2 Get alexa-avs-sample
 ```shell
 git clone https://github.com/RobotAlexa/alexa_java_client.git
@@ -41,6 +55,7 @@ cd alexa_java_client
 Need create alexa product. Please follow the steps by [alexa-avs-sample-app wiki](https://github.com/alexa/alexa-avs-sample-app/wiki/Raspberry-Pi).
 
 
+<a name="step3"></a>
 ### Step 3 Get Microsemi ZL38050 driver
 Please get the ZL38050 driver code from github.
 ```shell
@@ -140,6 +155,7 @@ x_tables               20590  1 ip_tables
 ipv6                  408387  30
 ```
 
+<a name="step4"></a>
 ### Step 4 Check if the audio can work
 Before checking the audio functions, please install “sox” by “sudo apt install sox”. Please record a wav file, and replay it to check if the Mic and Speaker can work
 ```shell
@@ -154,21 +170,24 @@ Check if the wav file is right:
 play test.wav
 ```
 
-2> control robot 
---------------------
+<a name="control_robot"></a>
+## 2> control robot 
+
 * project: samples/javaclient
 Support: action, dancing, moving, setup volume, and stop
 * see: com.amazon.alexa.avs.robot.communicate.MsgSendManager
 
-3> YansheeControl
-----------------------
+<a name="Control_Yanshee"></a>
+## 3> YansheeControl
+
 * project: samples/YansheeControl
 
 This version uses the YansheeSDK to control robot. YansheeControl is socket server, and javaclient is socket client.
 javaclient via YansheeControl to control robot.
 
-4> Support utterances
-----------------------
+<a name="Support_utterances"></a>
+## 4> Support utterances 
+
 * Inner actions path: /mnt/1xrobot/res/hts/ 
 ![](res/actions1.png)
 ![](res/actions2.png)

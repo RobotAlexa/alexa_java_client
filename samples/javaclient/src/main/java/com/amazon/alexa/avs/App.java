@@ -16,6 +16,7 @@ import com.amazon.alexa.avs.auth.AuthSetup;
 import com.amazon.alexa.avs.config.DeviceConfig;
 import com.amazon.alexa.avs.config.DeviceConfigUtils;
 import com.amazon.alexa.avs.http.AVSClientFactory;
+import com.amazon.alexa.avs.robot.communicate.SocketClient;
 import com.amazon.alexa.avs.ui.graphical.GraphicalUI;
 import com.amazon.alexa.avs.ui.headless.HeadlessUI;
 import com.amazon.alexa.avs.ui.BaseUI;
@@ -42,7 +43,9 @@ public class App {
 
             String serverPath = System.getenv("YANSHEE_CONTROL");
             if (!TextUtils.isEmpty(serverPath)) {
-                Runtime.getRuntime().exec("cd $YANSHEE_CONTROL && python main.py");
+            	String cmd = "netstat -nlp | grep " + SocketClient.PORT + " | awk '{print $7}' | awk -F\"/\" '{print $1}' | xargs kill -9 ";
+            	cmd += "&& cd $YANSHEE_CONTROL && python main.py";
+                Runtime.getRuntime().exec(cmd);
             }
 
         } catch (Exception e) {

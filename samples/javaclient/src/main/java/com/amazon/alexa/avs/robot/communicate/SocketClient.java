@@ -1,13 +1,8 @@
 package com.amazon.alexa.avs.robot.communicate;
 
 import com.amazon.alexa.avs.robot.communicate.entities.SocketMsg;
-import com.amazon.alexa.avs.robot.communicate.entities.UdpMsg;
 import com.amazon.alexa.avs.robot.communicate.listener.SocketSendListener;
 import com.amazon.alexa.avs.util.GsonUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -19,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class SocketClient {
 
 	static final String HOST = "127.0.0.1";
-	static final int PORT = 29599;
+	public static final int PORT = 29599;
 
 	private List<SocketSendListener> socketSendListeners = new ArrayList<>();
 	private SendThread sendThread;

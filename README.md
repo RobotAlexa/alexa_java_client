@@ -2,7 +2,7 @@ Alexa demo for Yanshee robot
 
 See [alexa-avs-sample-app](https://github.com/alexa/alexa-avs-sample-app/wiki/Raspberry-Pi)
 
-build alexa java client and ZLK38AVS 
+1> build alexa java client and ZLK38AVS 
 -----------------------
 ### Step 1 Stop the default voice recognition application
 It is not a good choice to run more than one voice recognition application on one device, so please disable the default voice recognition before porting Alexa to Yanshee.
@@ -154,20 +154,20 @@ Check if the wav file is right:
 play test.wav
 ```
 
-control robot 
+2> control robot 
 --------------------
 * project: samples/javaclient
 Support: action, dancing, moving, setup volume, and stop
 * see: com.amazon.alexa.avs.robot.communicate.MsgSendManager
 
-YansheeControl
+3> YansheeControl
 ----------------------
 * project: samples/YansheeControl
 
 This version uses the YansheeSDK to control robot. YansheeControl is socket server, and javaclient is socket client.
 javaclient via YansheeControl to control robot.
 
-Support utterances
+4> Support utterances
 ----------------------
 * Inner actions path: /mnt/1xrobot/res/hts/ 
 ![](res/actions1.png)

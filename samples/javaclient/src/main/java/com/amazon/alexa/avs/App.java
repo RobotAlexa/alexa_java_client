@@ -20,6 +20,7 @@ import com.amazon.alexa.avs.ui.graphical.GraphicalUI;
 import com.amazon.alexa.avs.ui.headless.HeadlessUI;
 import com.amazon.alexa.avs.ui.BaseUI;
 import com.amazon.alexa.avs.wakeword.WakeWordIPCFactory;
+import org.apache.http.util.TextUtils;
 
 public class App {
 
@@ -38,6 +39,12 @@ public class App {
 
         try {
             Runtime.getRuntime().exec("sudo service ubtedu stop");
+
+            String serverPath = System.getenv("YANSHEE_CONTROL");
+            if (!TextUtils.isEmpty(serverPath)) {
+                Runtime.getRuntime().exec("cd $YANSHEE_CONTROL && python main.py");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -46,7 +46,6 @@ public class App {
             if (!TextUtils.isEmpty(serverPath)) {
             	String[] cmd = { "/bin/bash", "-c", "cd $YANSHEE_CONTROL; bash run.sh" }; 
                 Runtime.getRuntime().exec(cmd);
-                System.out.println(cmd);
             }
 
         } catch (Exception e) {

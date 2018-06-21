@@ -35,6 +35,7 @@ def start():
         try:
             client_data = conn.recv(4096)
             str_data = str(client_data)
+            str_data = str_data[str_data.find('{'):]
             print ("receive message: %s" % str_data)
             if is_json(str_data):
                 request = json.loads(str_data)

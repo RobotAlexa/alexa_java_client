@@ -4,13 +4,13 @@ See [alexa-avs-sample-app](https://github.com/alexa/alexa-avs-sample-app/wiki/Ra
 
 Content
 ---------------
-* [build alexa java client and ZLK38AVS ](#build_client)  
+* [Build alexa java client and ZLK38AVS ](#build_client)  
     * [Step 1 Stop the default voice recognition application](#step1)  
     * [Step 2 Get alexa-avs-sample](#step2)  
     * [Step 3 Get Microsemi ZL38050 driver](#step3)  
     * [Step 4 Check if the audio can work](#step4)  
-* [control robot](#control_robot)  
-* [YansheeControl](#Control_Yanshee)  
+* [Java client](#control_robot)  
+* [Yanshee control](#Control_Yanshee)  
 * [Support utterances](#Support_utterances)  
 
 <a name="build_client"></a>
@@ -171,19 +171,23 @@ play test.wav
 ```
 
 <a name="control_robot"></a>
-## 2> control robot 
+## 2> Java client
 
 * project: samples/javaclient
 Support: action, dancing, moving, setup volume, and stop
 * see: com.amazon.alexa.avs.robot.communicate.MsgSendManager
 
 <a name="Control_Yanshee"></a>
-## 3> YansheeControl
+## 3> Yanshee control
 
 * project: samples/YansheeControl
 
-This version uses the YansheeSDK to control robot. YansheeControl is socket server, and javaclient is socket client.
+This version uses the Yanshee-Raspi-SDK to control robot. YansheeControl is socket server, and javaclient is socket client.
 javaclient via YansheeControl to control robot.
+
+```shell
+YansheeSDK: https://github.com/UBTEDU/Yanshee-Raspi-SDK
+```
 
 <a name="Support_utterances"></a>
 ## 4> Support utterances 
